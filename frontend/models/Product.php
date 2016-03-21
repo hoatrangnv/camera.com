@@ -53,7 +53,7 @@ use yii\helpers\Url;
  * @property ProductToProductCategory[] $productToProductCategories
  * @property ProductCategory[] $productCategories
  */
-class Product extends ActiveRecord
+class Product extends \common\models\Product
 {
     
 

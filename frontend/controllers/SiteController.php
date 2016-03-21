@@ -6,6 +6,7 @@ use frontend\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
+use frontend\models\SlideshowItem;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\filters\AccessControl;
@@ -72,7 +73,24 @@ class SiteController extends BaseController
     public function actionIndex()
     {
         $this->link_canonical = Yii::$app->params['frontend_url'];
-        return $this->render('index');
+        if ($this->is_mobile && !$this->is_tablet) {
+            $slideshow_item_image_ratio = Yii::$app->params['wph_ratios']['slideshow_item_image_mobile'];
+            $slideshow_item_image_suffix = SlideshowItem::$image_resizes['mobile'];
+        } else if ($this->is_tablet) {
+            $slideshow_item_image_ratio = Yii::$app->params['wph_ratios']['slideshow_item_image_tablet'];
+            $slideshow_item_image_suffix = SlideshowItem::$image_resizes['tablet'];
+        } else {
+            $slideshow_item_image_ratio = Yii::$app->params['wph_ratios']['slideshow_item_image_desktop'];
+            $slideshow_item_image_suffix = SlideshowItem::$image_resizes['desktop'];
+        }
+        
+        $slideshow_items = SlideshowItem::getList();
+        
+        return $this->render('index', [
+            'slideshow_items' => $slideshow_items,
+            'slideshow_item_image_ratio' => $slideshow_item_image_ratio,
+            'slideshow_item_image_suffix' => $slideshow_item_image_suffix,
+        ]);
     }
 
     /**

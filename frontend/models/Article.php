@@ -42,7 +42,8 @@ use yii\helpers\Url;
  *
  * @property ArticleToArticleCategory[] $articleToArticleCategories
  */
-class Article extends ActiveRecord {
+class Article extends \common\models\Article
+{
 
     public $a = '';
     public $img = '';

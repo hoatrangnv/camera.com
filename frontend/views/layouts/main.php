@@ -28,13 +28,7 @@ AppAsset::register($this);
         <div class="clearfix"></div>
     </div>
     <div class="box-body">
-        <div class="col-md-3">
-            
-        </div>
-        <div class="col-md-9">
-            <?= $content ?>
-        </div>
-        <div class="clearfix"></div>
+        <?= $content ?>
     </div>
     <div class="box-footer">
         <?php require_once 'footer.php'; ?>

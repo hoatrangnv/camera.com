@@ -39,7 +39,7 @@ use yii\helpers\Url;
  * @property ArticleCategory[] $articleCategories
  * @property ArticleToArticleCategory[] $articleToArticleCategories
  */
-class ArticleCategory extends ActiveRecord
+class ArticleCategory extends \common\models\ArticleCategory
 {
         
     /**

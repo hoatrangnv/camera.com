@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 
+use common\utils\FileUtils;
 use Yii;
 
 /**
@@ -19,8 +20,33 @@ use Yii;
  * @property integer $updated_at
  * @property string $updated_by
  */
-class SlideshowItem extends \yii\db\ActiveRecord
+class SlideshowItem extends \common\models\SlideshowItem
 {
+    
+    /**
+    * function ->getImage ($suffix, $refresh)
+    */
+    public $_image;
+    public function getImage($suffix = null, $refresh = false)
+    {
+        if ($this->_image === null || $refresh == true) {
+            $this->_image = FileUtils::getImage([
+                'imageName' => $this->image,
+                'imagePath' => $this->image_path,
+                'imagesFolder' => Yii::$app->params['images_folder'],
+                'imagesUrl' => Yii::$app->params['images_url'],
+                'suffix' => $suffix,
+                'defaultImage' => Yii::$app->params['default_image']
+            ]);
+        }
+        return $this->_image;
+    }
+    
+    public function getList()
+    {
+        return SlideshowItem::find()->where(['is_active' => 1])->orderBy('position asc')->all();
+    }
+    
     /**
      * @inheritdoc
      */

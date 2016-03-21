@@ -25,7 +25,8 @@ class BaseController extends Controller {
     $breadcrumbs = array(),
     $seo_exist = false,
     $seo_image_exist = false,
-    $is_mobile;
+    $is_mobile,
+    $is_tablet;
     
     public function init()
     {
@@ -33,7 +34,9 @@ class BaseController extends Controller {
         
         $this->meta_index = 'index';
         $this->meta_follow = 'follow';
-        $this->is_mobile = (new MobileDetect)->isMobile();
+        $mobile_detect = new MobileDetect;
+        $this->is_mobile = $mobile_detect->isMobile();
+        $this->is_tablet = $mobile_detect->isTablet();
         $this->meta_image = Yii::$app->params['default_image'];
         $this->breadcrumbs[] = ['label' => 'Trang chủ', 'url' => Url::home()];
         
