@@ -1,4 +1,3 @@
-<meta charset="utf-8">
 <title><?= $this->context->page_title ?></title>
 <meta name="title" content="<?= $this->context->meta_title ?>">
 <meta name="description" content="<?= $this->context->meta_description ?>">
@@ -13,14 +12,14 @@
 <meta name="DC.Source" content="<?= \yii\helpers\Url::home() ?>">
 <meta name="DC.Coverage" content="Vietnam">
 <meta name="RATING" content="GENERAL">
-<meta name="COPYRIGHT" content="<?= Yii::$app->params['site_name'] ?>">
+<meta name="COPYRIGHT" content="<?= Yii::$app->name ?>">
 <meta property="fb:app_id" content="<?= Yii::$app->params['fb_app_id'] ?>">
 <meta property="og:type" content="website">
 <meta property="og:title" content="<?= $this->context->meta_title ?>">
-<meta property="og:description" content="Click ngay xem nhiều thông tin hữu ích để vào lớp 10">
+<meta property="og:description" content="<?= $this->context->meta_description ?>">
 <meta property="og:url" content="<?= $this->context->link_canonical ?>">
 <meta property="og:image" content="<?= $this->context->meta_image ?>">
-<meta property="og:site_name" content="<?= Yii::$app->params['site_name'] ?>">
+<meta property="og:site_name" content="<?= Yii::$app->name ?>">
 <meta property="article:publisher" content="">
 <link rel="canonical" href="<?= $this->context->link_canonical ?>">
 <link rel="image_src" type="image/jpeg" href="<?= $this->context->meta_image ?>">
@@ -29,4 +28,3 @@
 <!-- Chrome for Android theme color -->
 <meta name="theme-color" content="#303F9F">
 <meta name="REVISIT-AFTER" content="1 DAYS">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">

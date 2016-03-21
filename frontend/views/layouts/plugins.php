@@ -1,5 +1,5 @@
 <!-- jQuery -->
-<script src="<?= Yii::$app->params['frontend_url'] ?>/js/jquery-2.1.3.min.js"></script>
+<!--<script src="<?= Yii::$app->params['frontend_url'] ?>/js/jquery-2.1.3.min.js"></script>-->
 
 <!-- Google -->
 <script src="https://apis.google.com/js/platform.js" async defer></script>

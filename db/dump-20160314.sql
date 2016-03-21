@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `tdhome_vn` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
-USE `tdhome_vn`;
+CREATE DATABASE  IF NOT EXISTS `camera_com` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+USE `camera_com`;
 -- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: tdhome_vn
@@ -361,7 +361,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,'đồ gỗ mỹ nghệ','dgmn','do-go-my-nghe',NULL,500000,600000,'10-[2].jpg','12825497_10153970457889609_1189245057_n.jpg','/2016/03/14/QD/','<p>fgfgfg<img alt=\"\" src=\"http://localhost/tdhome.vn/frontend/web/images/2016/03/14/QD/13-[--8].jpg\" style=\"height:593px; width:1000px\" /></p>\r\n','đồ gỗ mỹ nghệ','<p>ffgfggf</p>\r\n','đồ gỗ mỹ nghệ','đồ gỗ mỹ nghệ','đồ gỗ mỹ nghệ','đồ gỗ mỹ nghệ','đồ gỗ mỹ nghệ, do go my nghe',0,1,NULL,NULL,NULL,NULL,NULL,NULL,1457945172,1457945266,NULL,'quyettv',NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `product` VALUES (1,'đồ gỗ mỹ nghệ','dgmn','do-go-my-nghe',NULL,500000,600000,'10-[2].jpg','12825497_10153970457889609_1189245057_n.jpg','/2016/03/14/QD/','<p>fgfgfg<img alt=\"\" src=\"http://localhost/camera.com/frontend/web/images/2016/03/14/QD/13-[--8].jpg\" style=\"height:593px; width:1000px\" /></p>\r\n','đồ gỗ mỹ nghệ','<p>ffgfggf</p>\r\n','đồ gỗ mỹ nghệ','đồ gỗ mỹ nghệ','đồ gỗ mỹ nghệ','đồ gỗ mỹ nghệ','đồ gỗ mỹ nghệ, do go my nghe',0,1,NULL,NULL,NULL,NULL,NULL,NULL,1457945172,1457945266,NULL,'quyettv',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 

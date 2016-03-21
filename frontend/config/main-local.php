@@ -5,7 +5,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'K2AK_p4RIcJ0Oi7DRqIgIZb3YnyOABHY',
-            'baseUrl' => '/tdhome.vn'
+            'baseUrl' => '/camera.com'
         ],
     ],
 ];

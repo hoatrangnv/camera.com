@@ -1,6 +1,10 @@
 <?php
 return [
     'language' => 'vi-VN',
+    'charset' => 'UTF-8',
+    'name' => 'Tdhome.vn',
+    'version' => '1.0',
+    
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
         'db' => [
