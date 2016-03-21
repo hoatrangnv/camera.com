@@ -10,12 +10,13 @@ and open the template in the editor.
 .logo {
     display: block;
     background-image: url("images/logo.png");
-    background-size: 100%;
+    background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
     min-height: 50px;
-    max-width: 30vw;
-    height: 10vw;
+    max-height: 100px;
+    max-width: 25vw;
+    height: 12vw;
 }
 .banner {
     background-image: url("images/banner.png");
@@ -23,5 +24,34 @@ and open the template in the editor.
     background-repeat: no-repeat;
     background-position: center;
     min-height: 50px;
-    height: 10vw;
+    max-height: 100px;
+    height: 12vw;
+}
+.box-body {
+    min-height: 100vw;
+}
+.menu-bar {
+    background-image: url("images/gm.gif");
+    background-repeat: repeat-x;
+    border-radius: 5px;
+    padding: 0;
+}
+.menu-bar li {
+    list-style: none;
+    float: left;
+    display: block;
+    height: 34px;
+    line-height: 34px;
+}
+.menu-bar a {
+    font-weight: bold;
+    padding: 0 1em;
+    color: #eee;
+}
+.menu-bar li.active a {
+    color: #a91f23;
+}
+.menu-bar li:not(:first-child) {
+    background: url(images/g.gif) no-repeat left top;
+    padding-left: 2px;
 }

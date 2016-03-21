@@ -22,20 +22,25 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-<div class="container">
+<div class="container box">
     <div class="box-header">
         <?php require_once 'header.php'; ?>
         <div class="clearfix"></div>
     </div>
     <div class="box-body">
-        <?= $content ?>
+        <div class="col-md-3">
+            
+        </div>
+        <div class="col-md-9">
+            <?= $content ?>
+        </div>
         <div class="clearfix"></div>
     </div>
     <div class="box-footer">
         <?php require_once 'footer.php'; ?>
     </div>
 </div>
-<?php require_once 'plugins.php'; ?>
+<?php // require_once 'plugins.php'; ?>
 <?php $this->endBody() ?>
 </body>
 </html>

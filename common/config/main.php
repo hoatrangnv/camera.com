@@ -2,7 +2,7 @@
 return [
     'language' => 'vi-VN',
     'charset' => 'UTF-8',
-    'name' => 'Tdhome.vn',
+    'name' => 'PhuongTruongThinh.com',
     'version' => '1.0',
     
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
@@ -10,9 +10,9 @@ return [
         'db' => [
             // database config
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=tdhome_vn',
-            'username' => 'tdhomeUser',
-            'password' => 'tdhomeUSER#000',
+            'dsn' => 'mysql:host=localhost;dbname=camera_com',
+            'username' => '',
+            'password' => '',
             'charset' => 'utf8',
         ],
         'mailer' => [
