@@ -37,6 +37,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<?= $this->render('//layouts/left') ?>
 <?php
 
 $this->registerCss('
