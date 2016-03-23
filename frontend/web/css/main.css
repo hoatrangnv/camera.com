@@ -9,6 +9,7 @@ and open the template in the editor.
 */
 .logo {
     display: block;
+    background-color: #e0ddc0;
     background-image: url("images/logo.png");
     background-size: 80%;
     background-repeat: no-repeat;
@@ -28,9 +29,9 @@ and open the template in the editor.
     height: 12vw;
 }
 .box-body {
-    min-height: 100vw;
+    min-height: 50vw;
 }
-.menu-bar {
+/*.menu-bar {
     background-image: url("images/gm.gif");
     background-repeat: repeat-x;
     border-radius: 5px;
@@ -54,4 +55,12 @@ and open the template in the editor.
 .menu-bar li:not(:first-child) {
     background: url(images/g.gif) no-repeat left top;
     padding-left: 2px;
-}
+}*/
+/*.navbar-my-image {
+    background-image: url("images/gm.gif");
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    border-radius: 5px;
+    padding: 0;
+    height: 10px;
+}*/

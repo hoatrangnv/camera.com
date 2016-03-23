@@ -1,5 +1,5 @@
-<footer>
-    <div class="col-md-12">
+<footer class="panel">
+    <div class="panel-footer">
         Copyright © <?= date('Y') ?> <strong><?= Yii::$app->name ?></strong>
     </div>
 </footer>

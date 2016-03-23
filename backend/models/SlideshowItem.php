@@ -212,9 +212,9 @@ class SlideshowItem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['image', 'image_path', 'created_at'], 'required'],
+            [['created_at'], 'required'],
             [['position', 'is_active'], 'integer'],
-            [['created_at', 'updated_at'], 'safe'],
+            [['image', 'image_path', 'created_at', 'updated_at'], 'safe'],
             [['image', 'image_path', 'link', 'caption'], 'string', 'max' => 511],
             [['created_by', 'updated_by'], 'string', 'max' => 255]
         ];

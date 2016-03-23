@@ -21,6 +21,7 @@ use yii\widgets\ActiveForm;
     </div>
     <div class="col-md-6">
 		<?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
+		<?= $form->field($model, 'caption')->textInput() ?>
 		<?= $form->field($model, 'position')->textInput() ?>
 		<?php // echo $model->created_at = $model->isNewRecord ? date('Y-m-d H:i:00') : date('Y-m-d H:i:s', $model->created_at) ?>
 		<?php /* echo $form->field($model, 'created_at')->widget(DateTimePicker::className(), [
