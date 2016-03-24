@@ -21,17 +21,21 @@ AppAsset::register($this);
 </head>
 <body>
     <?php $this->beginBody() ?>
-    <div class="container" style="padding:0">
-        <div class="box-header">
+    <div class="wrap" style="padding:0">
+        <div class="container">
             <?php require_once 'header.php'; ?>
             <div class="clearfix"></div>
         </div>
-        <div class="box-body">
+        <div class="container">
             <?= $content ?>
         </div>
-        <div class="box-footer">
-            <?php require_once 'footer.php'; ?>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-left">Copyright © <?= date('Y') ?> <strong><?= Yii::$app->name ?></strong></p>
+            <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
+    </footer>
         <?php // require_once 'plugins.php';  ?>
         <?php $this->endBody() ?>
 </body>
