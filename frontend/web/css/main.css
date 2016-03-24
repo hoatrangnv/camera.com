@@ -31,32 +31,7 @@ and open the template in the editor.
 .box-body {
     min-height: 50vw;
 }
-.menu-bar {
-    background-image: url("images/gm.gif");
-    background-repeat: repeat-x;
-    border-radius: 5px;
-    padding: 0;
-}
-.menu-bar li {
-    list-style: none;
-    float: left;
-    display: block;
-    height: 34px;
-    line-height: 34px;
-}
-.menu-bar a {
-    font-weight: bold;
-    padding: 0 1em;
-    color: #eee;
-}
-.menu-bar li.active a {
-    color: #a91f23;
-}
-.menu-bar li:not(:first-child) {
-    background: url(images/g.gif) no-repeat left top;
-    padding-left: 2px;
-}
-// menu
+// navbar customize
 .navbar {
     position: relative;
     min-height: 34px;
@@ -86,9 +61,8 @@ and open the template in the editor.
     margin-bottom: 0px;
     background-color: transparent;
     background-image: none;
-    /*  border: 1px solid transparent;*/
+    border-radius: 4px;
     border: none;
-    /*border-radius: 4px;*/
 }
 .navbar-toggle:focus {
     outline: 0;
@@ -168,6 +142,10 @@ and open the template in the editor.
     background-color: transparent;
 }
 @media (min-width: 768px) {
+    .navbar-image li {
+        background: url(images/g.gif) no-repeat left top;
+        padding-left: 2px;
+    }
     .navbar {
         position: relative;
         min-height: 34px;
