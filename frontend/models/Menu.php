@@ -62,4 +62,27 @@ class Menu extends ActiveRecord
         return $current_id;
     }
     
+    public static $data2 = array();
+    public static function getData2()
+    {
+        $cache_key = 'Main menu set data';
+        static::$data = Yii::$app->cache->get($cache_key);
+        if (!static::$data) {
+            $id = 0;
+            static::$data[$id++] = ['label' => 'Trang chủ', 'url' => Yii::$app->params['frontend_url'], 'children' => []];
+            $articleCategories = ArticleCategory::getArticleCategories(['limit' => $limit, 'offset' => $offset, 'orderBy' => 'position asc, is_hot desc']);
+            foreach ($articleCategories as $item) {
+                if ($item->parent_id === null or $item->parent_id === 0) {
+                    $children = [];
+                    foreach ($articleCategories as $child) {
+                        if ($child->parent_id === $item->id) {
+                            $children[$id++] = ['label' => $child->name, 'url' => $child->getLink()];
+                        }
+                    }
+                    static::$data[$id++] = ['label' => $item->name, 'url' => $item->getLink(), 'children' => $children];
+                }
+            }
+            Yii::$app->cache->set($cache_key, static::$data, Yii::$app->params['cache_time']['medium']);
+        }
+    }
 }

@@ -21,7 +21,7 @@ AppAsset::register($this);
 </head>
 <body>
     <?php $this->beginBody() ?>
-    <div class="wrap" style="padding:0">
+    <div class="wrap">
         <div class="container">
             <?php require_once 'header.php'; ?>
             <div class="clearfix"></div>
@@ -32,8 +32,10 @@ AppAsset::register($this);
     </div>
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">Copyright © <?= date('Y') ?> <strong><?= Yii::$app->name ?></strong></p>
-            <p class="pull-right"><?= Yii::powered() ?></p>
+            <div class="panel panel-footer">
+                <p class="pull-left">Copyright © <?= date('Y') ?> <strong><?= Yii::$app->name ?></strong></p>
+                <div class="clearfix"></div>
+            </div>
         </div>
     </footer>
         <?php // require_once 'plugins.php';  ?>

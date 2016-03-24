@@ -90,8 +90,8 @@ and open the template in the editor.
 }
 .navbar-image .navbar-brand:hover,
 .navbar-image .navbar-brand:focus {
-    color: #a91f23;
-    background-color: transparent;
+    /*color: #a91f23;*/
+    /*background-color: transparent;*/
 }
 .navbar-image .navbar-text {
     color: #fff;
