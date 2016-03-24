@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 .logo {
     display: block;
-    background-color: #e4ce80;
+    /*background-color: #e4ce80;*/
     background-image: url("images/logo.png");
     background-size: 80%;
     background-repeat: no-repeat;
@@ -31,7 +31,7 @@ and open the template in the editor.
 .box-body {
     min-height: 50vw;
 }
-/*.menu-bar {
+.menu-bar {
     background-image: url("images/gm.gif");
     background-repeat: repeat-x;
     border-radius: 5px;
@@ -55,12 +55,204 @@ and open the template in the editor.
 .menu-bar li:not(:first-child) {
     background: url(images/g.gif) no-repeat left top;
     padding-left: 2px;
-}*/
-/*.navbar-my-image {
+}
+// menu
+.navbar {
+    position: relative;
+    min-height: 34px;
+    margin-bottom: 10px;
+    border: none;
+}
+.navbar-brand {
+    float: left;
+    height: 34px;
+    padding: 7px 7px;
+    font-size: 1.1em;
+    line-height: 20px;
+}
+.navbar-brand:hover,
+.navbar-brand:focus {
+    text-decoration: none;
+}
+.navbar-brand > img {
+    display: block;
+}
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 0px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    background-color: transparent;
+    background-image: none;
+    /*  border: 1px solid transparent;*/
+    border: none;
+    /*border-radius: 4px;*/
+}
+.navbar-toggle:focus {
+    outline: 0;
+}
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+.navbar-toggle .icon-bar + .icon-bar {
+    margin-top: 4px;
+}
+.navbar-image {
+    background-color: #222;
+    border-color: transparent;
+    border: none;
     background-image: url("images/gm.gif");
+    background-size: auto 34px;
     background-repeat: repeat-x;
-    background-size: auto 100%;
-    border-radius: 5px;
-    padding: 0;
-    height: 10px;
-}*/
+    font-weight: bold;
+}
+.navbar-image .navbar-brand {
+    color: #fff;
+}
+.navbar-image .navbar-brand:hover,
+.navbar-image .navbar-brand:focus {
+    color: #a91f23;
+    background-color: transparent;
+}
+.navbar-image .navbar-text {
+    color: #fff;
+}
+.navbar-image .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-image .navbar-nav > li > a:hover,
+.navbar-image .navbar-nav > li > a:focus {
+    color: #a91f23;
+    background-color: transparent;
+}
+.navbar-image .navbar-nav > .active > a,
+.navbar-image .navbar-nav > .active > a:hover,
+.navbar-image .navbar-nav > .active > a:focus {
+    color: #a91f23;
+    background-color: transparent;
+}
+.navbar-image .navbar-nav > .disabled > a,
+.navbar-image .navbar-nav > .disabled > a:hover,
+.navbar-image .navbar-nav > .disabled > a:focus {
+    color: #444;
+    background-color: transparent;
+}
+.navbar-image .navbar-toggle {
+    border-color: #fff;
+}
+.navbar-image .navbar-toggle:hover,
+.navbar-image .navbar-toggle:focus {
+    background-color: transparent;
+    border-color: #fff;
+}
+.navbar-image .navbar-toggle:hover .icon-bar,
+.navbar-image .navbar-toggle:focus .icon-bar {
+    background-color: #fff;
+}
+.navbar-image .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+.navbar-image .navbar-collapse,
+.navbar-image .navbar-form {
+    border-color: #101010;
+}
+.navbar-image .navbar-nav > .open > a,
+.navbar-image .navbar-nav > .open > a:hover,
+.navbar-image .navbar-nav > .open > a:focus {
+    color: #fd3;
+    background-color: transparent;
+}
+@media (min-width: 768px) {
+    .navbar {
+        position: relative;
+        min-height: 34px;
+        margin-bottom: 10px;
+        border: none;
+    }
+    .navbar-nav>li>a {
+        line-height: 34px;
+        padding-top: 0; 
+        padding-bottom: 0; 
+    }
+    .navbar-toggle {
+        display: none;
+    }
+    .navbar > .container .navbar-brand,
+    .navbar > .container-fluid .navbar-brand {
+        margin-left: -15px;
+    }
+}
+@media (max-width: 767px) {
+    .navbar {
+        position: relative;
+        min-height: 34px;
+        margin-bottom: 10px;
+        border: none;
+    }
+    .navbar-image .navbar-brand:hover,
+    .navbar-image .navbar-brand:focus {
+        color: #fd3;
+        background-color: transparent;
+    }
+    .navbar-image .navbar-nav > li > a:hover,
+    .navbar-image .navbar-nav > li > a:focus {
+        color: #fd3;
+        background-color: transparent;
+    }
+    .navbar-image .navbar-nav > .active > a,
+    .navbar-image .navbar-nav > .active > a:hover,
+    .navbar-image .navbar-nav > .active > a:focus {
+        color: #fd3;
+        background-color: transparent;
+    }
+    .navbar-image .navbar-nav .open .dropdown-menu > .dropdown-header {
+        border-color: transparent;
+    }
+    .navbar-image .navbar-nav .open .dropdown-menu .divider {
+        background-color: transparent;
+    }
+    .navbar-image .navbar-nav .open .dropdown-menu > li > a {
+        color: #fff;
+    }
+    .navbar-image .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-image .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #fd3;
+        background-color: transparent;
+    }
+    .navbar-image .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-image .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-image .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #fd3;
+        background-color: transparent;
+    }
+    .navbar-image .navbar-nav .open .dropdown-menu > .disabled > a,
+    .navbar-image .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .navbar-image .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+        color: #444;
+        background-color: transparent;
+    }
+}
+.navbar-image .navbar-link {
+    color: #fff;
+}
+.navbar-image .navbar-link:hover {
+    color: #fd3;
+}
+.navbar-image .btn-link {
+    color: #fff;
+}
+.navbar-image .btn-link:hover,
+.navbar-image .btn-link:focus {
+    color: #fd3;
+}
+.navbar-image .btn-link[disabled]:hover,
+fieldset[disabled] .navbar-image .btn-link:hover,
+.navbar-image .btn-link[disabled]:focus,
+fieldset[disabled] .navbar-image .btn-link:focus {
+    color: #444;
+}

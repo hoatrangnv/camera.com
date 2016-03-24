@@ -14,14 +14,14 @@ use yii\helpers\Url;
     </div>
     <div class="clearfix"></div>
 </div>
-<!--<nav class="navbar navbar-default">
+<nav class="navbar navbar-image">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="<?= Url::home() ?>"><?= Yii::$app->name ?></a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span>
             </button>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
@@ -38,4 +38,4 @@ use yii\helpers\Url;
             </ul>
         </div>
     </div>
-</nav>-->
+</nav>

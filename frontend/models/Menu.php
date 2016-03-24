@@ -3,20 +3,42 @@ namespace frontend\models;
 
 use Yii;
 use yii\db\ActiveRecord;
+use yii\helpers\Url;
 
 class Menu extends ActiveRecord
 {
     
-    const LIMIT = 10;
+    const LIMIT = null;
     public static $data = array();
 
     public static function getData($limit = null, $offset = null)
     {
-        static::$data[] = ['label' => 'Trang chủ', 'url' => Yii::$app->params['frontend_url'], 'level' => 1, 'parent_id' => null];
-        $productCategories = ProductCategory::getProductCategories(['is_parent' => true, 'limit' => $limit, 'offset' => $offset, 'orderBy' => 'is_hot desc, position asc']);
-        foreach ($productCategories as $item) {
-            static::$data[] = ['label' => $item->name, 'url' => $item->getLink(), 'level' => 2, 'parent_id' => null];
-        }
+//        $cache_key = 'Main menu set data';
+//        static::$data = Yii::$app->cache->get($cache_key);
+//        if (!static::$data) {
+//            $id = 0;
+//            static::$data[$id++] = ['label' => 'Trang chủ', 'url' => Yii::$app->params['frontend_url'], 'children' => []];
+//            $articleCategories = ArticleCategory::getArticleCategories(['limit' => $limit, 'offset' => $offset, 'orderBy' => 'position asc, is_hot desc']);
+//            foreach ($articleCategories as $item) {
+//                if ($item->parent_id === null or $item->parent_id === 0) {
+//                    $children = [];
+//                    foreach ($articleCategories as $child) {
+//                        if ($child->parent_id === $item->id) {
+//                            $children[$id++] = ['label' => $child->name, 'url' => $child->getLink()];
+//                        }
+//                    }
+//                    static::$data[$id++] = ['label' => $item->name, 'url' => $item->getLink(), 'children' => $children];
+//                }
+//            }
+//            Yii::$app->cache->set($cache_key, static::$data, Yii::$app->params['cache_time']['medium']);
+//        }
+        static::$data = [
+            0 => ['label' => 'Trang chủ', 'url' => Url::home()],
+            1 => ['label' => 'Giới thiệu', 'url' => Url::home() . 'gioi-thieu.html'],
+            2 => ['label' => 'Sản phẩm', 'url' => Url::home() . 'san-pham'],
+            3 => ['label' => 'Tin tức', 'url' => Url::home() . 'tin-tuc'],
+            4 => ['label' => 'Liên hệ', 'url' => Url::home() . 'lien-he.html'],
+        ];
         return static::$data;
     }
     

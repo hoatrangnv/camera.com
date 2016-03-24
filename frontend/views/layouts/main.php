@@ -21,7 +21,7 @@ AppAsset::register($this);
 </head>
 <body>
     <?php $this->beginBody() ?>
-    <div class="container box">
+    <div class="container" style="padding:0">
         <div class="box-header">
             <?php require_once 'header.php'; ?>
             <div class="clearfix"></div>
