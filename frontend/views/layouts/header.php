@@ -4,7 +4,7 @@ use frontend\models\Menu;
 use yii\helpers\Html;
 use yii\helpers\Url;
 ?>
-<div class="row">
+<div class="row-fluid">
     <div class="col-md-2">
         <a class="logo center-block" href="<?= Url::home() ?>" title="<?= Yii::$app->name ?>"></a>
     </div>
@@ -39,3 +39,4 @@ use yii\helpers\Url;
         </div>
     </div>
 </nav>
+<div class="clearfix"></div>
