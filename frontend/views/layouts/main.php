@@ -24,7 +24,47 @@ AppAsset::register($this);
     <div class="container" style="padding:0;max-width:1000px">
     <div class="wrap">
             <?php require_once 'header.php'; ?>
+        <div id="wrapper">
+                <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Start Bootstrap
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
             <?= $content ?>
+        </div>
+    </div>
+        <div class="clearfix"></div>
     </div>
     <footer class="footer">
             <div class="panel panel-footer">
@@ -32,6 +72,15 @@ AppAsset::register($this);
                 <div class="clearfix"></div>
             </div>
     </footer>
+        <?php
+        $this->registerJs('
+    <!-- Menu Toggle Script -->
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    ');
+        ?>
     <?php // require_once 'plugins.php';  ?>
 </div>
     <?php $this->endBody() ?>
