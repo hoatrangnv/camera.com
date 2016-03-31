@@ -152,10 +152,10 @@ body {
     display: block;
 }
 .side-menu > ul > li > button.open {
-    transform: rotateY(90deg);
-    -ms-transform: rotateY(90deg);
-    -moz-transform: rotateY(90deg);
-    -webkit-transform: rotateY(90deg);
+    transform: rotateZ(90deg);
+    -ms-transform: rotateZ(90deg);
+    -moz-transform: rotateZ(90deg);
+    -webkit-transform: rotateZ(90deg);
 }
 
 .content {
