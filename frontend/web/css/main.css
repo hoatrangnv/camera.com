@@ -131,10 +131,8 @@ body {
     top: 2px;
     width: 30px;
     height: 30px;
-    line-height: 30px;
     border-radius: 30px;
     font-size: 1.05em;
-    font-weight: bold;
     box-shadow: 0 0 2px #aaa;
     outline: none;
     margin: auto;
