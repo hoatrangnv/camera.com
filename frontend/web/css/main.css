@@ -128,9 +128,10 @@ body {
     position: absolute;
     z-index: 9;
     right: 0;
-    top: 4px;
-    width: 26px;
-    height: 26px;
+    top: 2px;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
     margin: auto;
     border: none;
 }
