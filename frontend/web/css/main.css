@@ -136,6 +136,7 @@ body {
     outline: none;
     margin: auto;
     border: none;
+    font-family: Tahoma;
 }
 .side-menu > ul > li > ul,
 .side-menu > ul > li > button {
