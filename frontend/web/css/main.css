@@ -152,12 +152,6 @@ body {
 .side-menu > ul > li > button.open + ul {
     display: block;
 }
-.side-menu > ul > li > button.open {
-    transform: rotateZ(90deg);
-    -ms-transform: rotateZ(90deg);
-    -moz-transform: rotateZ(90deg);
-    -webkit-transform: rotateZ(90deg);
-}
 
 .content {
     float:right;

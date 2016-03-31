@@ -62,15 +62,17 @@ bt.addEventListener("click", function() {
 var bts = document.getElementsByClassName("sub-bt");
 for (var i = 0; i < bts.length; i++) {
     if (bts[i].classList.contains("open")) {
-        bts[i].innerHTML = "&#215;";
+        bts[i].innerHTML = "&#8722;";
     } else {
         bts[i].innerHTML = "&#43;";
     }
     bts[i].addEventListener("click", function(){
         if (this.classList.contains("open")) {
             this.classList.remove("open");
+            this.innerHTML = "&#43;";
         } else {
             this.classList.add("open");
+            this.innerHTML = "&#8722;";
         }
     });
 }
