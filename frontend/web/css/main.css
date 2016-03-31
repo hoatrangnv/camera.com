@@ -137,10 +137,10 @@ body {
     margin: auto;
     border: none;
 }
-/*.side-menu > ul > li > ul,
+.side-menu > ul > li > ul,
 .side-menu > ul > li > button {
-    background: rgba(200, 200, 200, 0.3);
-}*/
+    background: rgba(255, 255, 255, 0.2);
+}
 .side-menu > ul > li > ul > li > a{
     padding-left: 0.5em;
     font-size: 0.95em;
