@@ -141,9 +141,9 @@ body {
 .side-menu > ul > li > button {
     background: rgba(255, 255, 255, 0.2);
 }
-.side-menu > ul > li > ul > li > a{
+.side-menu > ul > li > ul > li > a {
     padding-left: 0.5em;
-    font-size: 0.96em;
+    font-size: 0.98em;
 }
 .side-menu > ul > li > ul {
     display: none;
