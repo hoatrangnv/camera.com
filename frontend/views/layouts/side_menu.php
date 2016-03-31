@@ -19,7 +19,7 @@ $current_id = Menu::getCurrentId();
             <?php
             if ($item['children'] !== []) {
             ?>
-            <button class="sub-bt">&gt;</button>
+            <button class="sub-bt">+</button>
             <?php
             }
             ?>
