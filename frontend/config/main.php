@@ -74,6 +74,7 @@ return [
         ],
         'assetManager' => [
             'bundles' => [
+                'appendTimestamp' => true,
                 'yii\web\JqueryAsset' => false
 //                [
 //                    'sourcePath' => null, // do not publish the bundle
