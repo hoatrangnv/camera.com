@@ -62,10 +62,10 @@ bt.addEventListener("click", function() {
 var bts = document.getElementsByClassName("sub-bt");
 for (var i = 0; i < bts.length; i++) {
     bts[i].addEventListener("click", function(){
-        if (this.contains("open")) {
-            this.remove("open");
+        if (this.classList.contains("open")) {
+            this.classList.remove("open");
         } else {
-            this.add("open");
+            this.classList.add("open");
         }
     });
 }
