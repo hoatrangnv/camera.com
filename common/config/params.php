@@ -14,11 +14,11 @@ return [
     'images_url' => 'http://camera.com/images',
     'uploads_url' => 'http://admin.camera.com/uploads',
     
-    'root_folder' => '/data/website',
-    'backend_folder' => '/data/website/camera.com/backend/web',
-    'frontend_folder' => '/data/website/camera.com/frontend/web',
-    'images_folder' => '/data/website/camera.com/frontend/web/images',
-    'uploads_folder' => '/data/website/camera.com/backend/web/uploads',
+    'root_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo',
+    'backend_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo/camera.com/backend/web',
+    'frontend_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo/camera.com/frontend/web',
+    'images_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo/camera.com/frontend/web/images',
+    'uploads_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo/camera.com/backend/web/uploads',
 
     'relative_backend_folder' => '/backend/web',
     'relative_frontend_folder' => '/frontend/web',
