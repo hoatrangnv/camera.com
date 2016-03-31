@@ -12,7 +12,7 @@ return [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=127.10.162.2:3306;dbname=camera',
             'username' => 'adminIxPXIgb',
-            'password' => 'aRA9YX66RjNG',
+            'password' => 'aRA9YX66RjNG', 
             'charset' => 'utf8',
         ],
         'mailer' => [
