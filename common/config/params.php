@@ -15,10 +15,10 @@ return [
     'uploads_url' => 'http://camera-web1tvq.rhcloud.com/backend/uploads',
     
     'root_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo',
-    'backend_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo/camera-web1tvq.rhcloud.com/backend/web',
-    'frontend_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo/camera-web1tvq.rhcloud.com/frontend/web',
-    'images_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo/camera-web1tvq.rhcloud.com/frontend/web/images',
-    'uploads_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo/camera-web1tvq.rhcloud.com/backend/web/uploads',
+    'backend_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo/backend/web',
+    'frontend_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo/frontend/web',
+    'images_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo/frontend/web/images',
+    'uploads_folder' => '/var/lib/openshift/56fd164b0c1e6658be00008d/app-root/repo/backend/web/uploads',
 
     'relative_backend_folder' => '/backend/web',
     'relative_frontend_folder' => '/frontend/web',
