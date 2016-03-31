@@ -132,13 +132,15 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 30px;
+    box-shadow: 0 0 2px #ccc;
+    outline: none;
     margin: auto;
     border: none;
 }
-.side-menu > ul > li > ul,
+/*.side-menu > ul > li > ul,
 .side-menu > ul > li > button {
     background: rgba(200, 200, 200, 0.3);
-}
+}*/
 .side-menu > ul > li > ul > li > a{
     padding-left: 0.5em;
     font-size: 0.95em;
