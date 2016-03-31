@@ -148,20 +148,14 @@ body {
 .side-menu > ul > li > ul {
     display: none;
 }
-.side-menu > ul > li > ul.open {
+.side-menu > ul > li > button.open + ul {
     display: block;
 }
-.side-menu > ul > li > ul ~ button {
+.side-menu > ul > li > button.open {
     transform: rotateY(90deg);
     -ms-transform: rotateY(90deg);
     -moz-transform: rotateY(90deg);
     -webkit-transform: rotateY(90deg);
-}
-.side-menu > ul > li > ul.open ~ button {
-    transform: rotateY(180deg);
-    -ms-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-    -webkit-transform: rotateY(180deg);
 }
 
 .content {
