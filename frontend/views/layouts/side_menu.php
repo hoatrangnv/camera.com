@@ -19,11 +19,11 @@ $current_id = Menu::getCurrentId();
             <?php
             if ($item['children'] !== []) {
             ?>
-            <button class="sub-bt">&rang;</button>
+            <button class="sub-bt <?= $active ? 'class="open"' : '' ?>">&#8250;</button>
             <?php
             }
             ?>
-            <ul <?= $active ? 'class="open"' : '' ?>>
+            <ul>
                 <?php
                 foreach ($item['children'] as $c_id => $c_item) {
                 ?>
