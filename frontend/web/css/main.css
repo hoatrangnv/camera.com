@@ -130,12 +130,7 @@ body {
     right: 0;
     top: 2px;
     width: 30px;
-    height: 25px;
-    height: 25px;
-    transform: scaleY(1.2);
-    -ms-transform: scaleY(1.2);
-    -moz-transform: scaleY(1.2);
-    -webkit-transform: scaleY(1.2);
+    height: 30px;
     border-radius: 30px;
     box-shadow: 0 0 2px #aaa;
     outline: none;
