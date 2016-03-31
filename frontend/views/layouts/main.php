@@ -13,7 +13,7 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
     <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no">
     <?= Html::csrfMetaTags() ?> 
     <?php require_once 'meta.php'; ?>
     <script type="text/javascript" language="javascript">
