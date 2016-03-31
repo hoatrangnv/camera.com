@@ -131,7 +131,7 @@ class ProductCategory extends \common\models\Product
     
     public static function getProductCategories($params = ['is_parent' => false]) {
         $query = static::find()->where(['is_active' => 1]);
-        if ($params['is_parent'] === true) {
+        if (isset($params['is_parent']) && $params['is_parent'] === true) {
             $query->andWhere('parent_id is null or parent_id = 0');
         }
         if (isset($params['id_in']) && is_array($params['id_in'])) {

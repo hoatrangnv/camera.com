@@ -18,16 +18,9 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
-//        'css/bootstrap.min.css',
         'css/main.css',
-        'css/simple-sidebar.css',
     ];
     public $js = [
-//        '//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js',
-//        '//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'
-        'js/jquery-2.1.3.min.js',
-        'js/bootstrap.min.js'
     ];
     public $depends = [
 //        'yii\web\YiiAsset',

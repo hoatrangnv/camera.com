@@ -26,7 +26,6 @@ return [
     'relative_uploads_folder' => '/backend/web/uploads',
     
     'default_image' => '',
-//    'allow_rm_dir_contains_less' => 20,
     
     'wph_ratios' => [
         'product_image' => 1.5,
@@ -49,4 +48,9 @@ return [
         'tablet' => 3
     ],
     
+    'cache_time' => [
+        'short' => 60,
+        'medium' => 300,
+        'long' => 1800,
+    ]
 ];

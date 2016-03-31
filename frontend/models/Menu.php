@@ -10,38 +10,31 @@ class Menu extends ActiveRecord
     
     const LIMIT = null;
     public static $data = array();
-
+    
     public static function getData($limit = null, $offset = null)
     {
-//        $cache_key = 'Main menu set data';
+        $cache_key = 'Main menu set data';
 //        static::$data = Yii::$app->cache->get($cache_key);
 //        if (!static::$data) {
-//            $id = 0;
-//            static::$data[$id++] = ['label' => 'Trang chủ', 'url' => Yii::$app->params['frontend_url'], 'children' => []];
-//            $articleCategories = ArticleCategory::getArticleCategories(['limit' => $limit, 'offset' => $offset, 'orderBy' => 'position asc, is_hot desc']);
-//            foreach ($articleCategories as $item) {
-//                if ($item->parent_id === null or $item->parent_id === 0) {
-//                    $children = [];
-//                    foreach ($articleCategories as $child) {
-//                        if ($child->parent_id === $item->id) {
-//                            $children[$id++] = ['label' => $child->name, 'url' => $child->getLink()];
-//                        }
-//                    }
-//                    static::$data[$id++] = ['label' => $item->name, 'url' => $item->getLink(), 'children' => $children];
-//                }
-//            }
+            $id = 0;
+            static::$data[$id++] = ['label' => 'Trang chủ', 'url' => Url::home(true), 'children' => []];
+            $productCategories = ProductCategory::getProductCategories(['limit' => $limit, 'offset' => $offset, 'orderBy' => 'position asc, is_hot desc']);
+            foreach ($productCategories as $item) {
+                if ($item->parent_id === null or $item->parent_id === 0) {
+                    $children = [];
+                    foreach ($productCategories as $child) {
+                        if ($child->parent_id === $item->id) {
+                            $children[$id++] = ['label' => $child->name, 'url' => $child->getLink()];
+                        }
+                    }
+                    static::$data[$id++] = ['label' => $item->name, 'url' => $item->getLink(), 'children' => $children];
+                }
+            }
 //            Yii::$app->cache->set($cache_key, static::$data, Yii::$app->params['cache_time']['medium']);
 //        }
-        static::$data = [
-            0 => ['label' => 'Trang chủ', 'url' => Url::home()],
-            1 => ['label' => 'Giới thiệu', 'url' => Url::home() . 'gioi-thieu.html'],
-            2 => ['label' => 'Sản phẩm', 'url' => Url::home() . 'san-pham'],
-            3 => ['label' => 'Tin tức', 'url' => Url::home() . 'tin-tuc'],
-            4 => ['label' => 'Liên hệ', 'url' => Url::home() . 'lien-he.html'],
-        ];
         return static::$data;
     }
-    
+
     public static function getCurrentId($data = null)
     {
         !empty($data) or $data = static::getData();
@@ -58,31 +51,15 @@ class Menu extends ActiveRecord
                 $current_id = $id;
                 $min = $count_diff;
             }
-        }
-        return $current_id;
-    }
-    
-    public static $data2 = array();
-    public static function getData2()
-    {
-        $cache_key = 'Main menu set data2';
-        static::$data2 = Yii::$app->cache->get($cache_key);
-        if (!static::$data2) {
-            $id = 0;
-            static::$data2[$id++] = ['label' => 'Trang chủ', 'url' => Yii::$app->params['frontend_url'], 'children' => []];
-            $productCategories = ProductCategory::getProductCategories(['limit' => $limit, 'offset' => $offset, 'orderBy' => 'position asc, is_hot desc']);
-            foreach ($productCategories as $item) {
-                if ($item->parent_id === null or $item->parent_id === 0) {
-                    $children = [];
-                    foreach ($productCategories as $child) {
-                        if ($child->parent_id === $item->id) {
-                            $children[$id++] = ['label' => $child->name, 'url' => $child->getLink()];
-                        }
-                    }
-                    static::$data2[$id++] = ['label' => $item->name, 'url' => $item->getLink(), 'children' => $children];
+            foreach ($item['children'] as $c_id => $c_item) {
+                $arr2 = explode('/', $c_item['url']);
+                $count_diff = count(array_diff($arr1, $arr2));
+                if ($c_id == 0 || $count_diff < $min) {
+                    $current_id = $c_id;
+                    $min = $count_diff;
                 }
             }
-            Yii::$app->cache->set($cache_key, static::$data2, Yii::$app->params['cache_time']['medium']);
         }
+        return $current_id;
     }
 }

@@ -2,7 +2,7 @@
 return [
     'language' => 'vi-VN',
     'charset' => 'UTF-8',
-    'name' => 'PhuongTruongThinh.com',
+    'name' => 'cameraquansat.me',
     'version' => '1.0',
     
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
@@ -10,9 +10,9 @@ return [
         'db' => [
             // database config
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=camera_com',
-            'username' => '',
-            'password' => '',
+            'dsn' => 'mysql:host=127.10.162.2:3306;dbname=camera',
+            'username' => 'adminIxPXIgb',
+            'password' => 'aRA9YX66RjNG',
             'charset' => 'utf8',
         ],
         'mailer' => [
