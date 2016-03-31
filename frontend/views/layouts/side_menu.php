@@ -19,7 +19,7 @@ $current_id = Menu::getCurrentId();
             <?php
             if ($item['children'] !== []) {
             ?>
-            <button class="sub-bt"></button>
+            <button class="sub-bt">&#94;</button>
             <?php
             }
             ?>
@@ -62,17 +62,10 @@ bt.addEventListener("click", function() {
 var bts = document.getElementsByClassName("sub-bt");
 for (var i = 0; i < bts.length; i++) {
     var smc = bts[i].nextElementSibling.classList;
-    if (smc.contains("open")) {
-        bts[i].innerHTML = "&#215;";
-    } else {
-        bts[i].innerHTML = "&#43;";
-    }
     bts[i].addEventListener("click", function(){
         if (smc.contains("open")) {
-            this.innerHTML = "&#43;";
             smc.remove("open");
         } else {
-            this.innerHTML = "&#215;";
             smc.add("open");
         }
     });

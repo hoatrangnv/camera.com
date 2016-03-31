@@ -151,6 +151,18 @@ body {
 .side-menu > ul > li > ul.open {
     display: block;
 }
+.side-menu > ul > li > ul ~ button {
+    transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -webkit-transform: rotateY(90deg);
+}
+.side-menu > ul > li > ul.open ~ button {
+    transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
 
 .content {
     float:right;
