@@ -182,7 +182,7 @@ body {
 .product-item img {
     width: 100%;
 }
-.breadcrumbs > a:not(:fist-child)::before {
+.breadcrumbs > a:not(:first-child)::before {
     content: "» ";
 }
 .main-container {
