@@ -1,34 +1,49 @@
 <?php
 
 use frontend\models\Menu;
+use frontend\models\ProductCategory;
+use yii\helpers\Url;
 
-$menu = Menu::getData();
-$current_id = Menu::getCurrentId();
+$data = [];
+$productCategories = ProductCategory::getProductCategories(['orderBy' => 'position asc, is_hot desc']);
+foreach ($productCategories as $item) {
+    $data[$item->id] = [
+        'label' => $item->name,
+        'url' => $item->getLink(),
+        'parent_key' => $item->parent_id
+    ];
+}
+Menu::init([
+//    'Home' => [
+//      [
+//          'label' => 'Trang chủ',
+//          'url' => Url::home(true),
+//          'parent_key' => null
+//      ]  
+//    ],
+    'ProductCategory' => $data,
+]);
+
+$menu = Menu::getTopParents();
+
 ?>
 <nav class="side-menu" id="side-menu">
     <ul>
         <?php
-        foreach (array_slice($menu, 1, null, true) as $id => $item) { // Loại bỏ "Trang chủ" khi hiển thị ra
-            $active = in_array($current_id, array_merge([$id], array_keys($item['children'])));
+        foreach ($menu as $key => $item) {
         ?>
-        <li <?= $active ? 'class="active"' : '' ?>>
-            <a href="<?= $item['url'] ?>" title="<?= $item['label'] ?>"><?= $item['label'] ?></a>
+        <li <?= $item->isCurrent() ? 'class="active"' : '' ?>>
+            <?= $item->a() ?>
             <?php
-            if ($item['children'] !== []) {
+            if (!empty($item->getChildren())) {
             ?>
-            <?php
-            if ($item['children'] !== []) {
-            ?>
-            <button class="sub-bt <?= $active ? 'open' : '' ?>"></button>
-            <?php
-            }
-            ?>
+            <button class="sub-bt <?= $item->isCurrent() ? 'open' : '' ?>"></button>
             <ul>
                 <?php
-                foreach ($item['children'] as $c_id => $c_item) {
+                foreach ($item->getChildren() as $c_key => $c_item) {
                 ?>
-                <li <?= $current_id === $c_id ? 'class="active"' : '' ?>>
-                    <a href="<?= $c_item['url'] ?>" title="<?= $c_item['label'] ?>"><?= $c_item['label'] ?></a>
+                <li <?= $c_item->isCurrent() ? 'class="active"' : '' ?>>
+                    <?= $c_item->a() ?>
                 </li>
                 <?php
                 }
