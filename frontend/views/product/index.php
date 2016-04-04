@@ -23,6 +23,10 @@
     <p><?= $product->description ?></p>
 </div>
 <div class="col-12">
+    <h2>Mô tả</h2>
+    <?= $product->long_description ?>
+</div>
+<div class="col-12">
     <h2>Chi tiết sản phẩm</h2>
     <?= $product->details ?>
 </div>
