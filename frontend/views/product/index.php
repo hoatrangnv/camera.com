@@ -1,58 +1,11 @@
 <?= $this->render('//modules/breadcrumbs') ?>
-<section class="content">
-    <div class="main">
-        <div class="col2 clearfix">
-            <div class="col-l">
-                <div class="content-detail">
-                    <h2 class="title-detail"><strong><?= $product->name ?></strong></h2>
-                    <time>Ngày đăng: <?= $product->date() ?></time>
-                    <?= $this->render('//modules/like_share', ['model' => $product]) ?>
-                    <div class="content_news">
-                        <?= $product->long_description ?>
-                    </div>
-                    <div class="content_news">
-                        <?= $product->details ?>
-                    </div>
-                    <div class="news-rela">
-                        <h2 class="title"><span class="ic-flower"></span><a title="" href="#"><strong>bài viết cùng chuyên mục</strong></a></h2>
-                        <ul class="list-unstyle clearfix">
-                            <?php foreach($related_products as $item) {
-                                $item->getImage('--220x220');
-                                ?>
-                            <li class="clearfix">
-                                <?= $item->a('img-bn', $item->img()) ?>
-                                <h3><?= $item->astrong() ?></h3>
-                            </li>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                    <?= $this->render('//modules/comment', ['model' => $product]) ?>
-                </div>
 
-            </div>
-            <?= $this->render('//layouts/right') ?>
-        </div>
-    </div>
-</section>
-<?php
-$this->registerCss('
-//.news-rela .img-bn img {
-//    height: 100%;
-//    width: auto;
-//}    
-//.news-rela .img-bn {
-//    overflow: hidden;
-//}    
-');
-$this->registerJs('
-$(".content_news table, .content_news img").each(function(){
-    var obj = $(this);
-    var obj_parent = obj.parents(".content_news");
-    if (obj.width() > obj_parent.width()) {
-        obj.width(obj_parent.width() + "px").height("auto");
-    }
-});
-$(".content_news table").css("border-top", "1px solid #ccc").css("border-left", "1px solid #ccc");
-$(".content_news table td").css("border-bottom", "1px solid #ccc").css("border-right", "1px solid #ccc");
-$(".content_news table td").css("padding", "3px");
-');
+<?= $this->render('//modules/slideshow', [
+    'data' => $images,
+    'options' => [
+        'auto_run' => false,
+        'time_slide' => 300,
+//        'time_out' => 3000
+//        'pause_on_hover' => true,
+    ]
+]) ?>

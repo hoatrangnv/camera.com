@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use frontend\models\Product;
+use frontend\models\ProductImage;
 use frontend\models\Redirect;
 use Yii;
 
@@ -37,8 +38,20 @@ class ProductController extends BaseController
             $product->view_count++;
             $product->save();
             
+            $images = [];
+            $product_images = ProductImage::find()->where(['product_id' => $product->id])->all();
+            foreach ($product_images as $item) {
+                $images[] = [
+                    'caption' => '',
+                    'alt' => $product->name,
+                    'link' => '#',
+                    'image' => $item->getImage()
+                ];
+            }
+            
             return $this->render('index', [
                 'product' => $product,
+                'images' => $images,
                 'related_products' => $related_products ? $related_products : array()
             ]);
         } else {

@@ -1,17 +1,12 @@
-<?php
-
-use frontend\models\SlideshowItem;
-
-?>
 <div class="slideshow-container" id="slideshow-container">
     <div class="slideshow-images" id="slideshow-images">
         <div class="wrap">
     <?php
-    foreach (SlideshowItem::find()->where(['is_active' => 1])->all() as $item) {
+    foreach ($data as $item) {
     ?><!--
         --><figure>
-            <img src="<?= $item->getImage() ?>" title="<?= $item->caption ?>" alt="<?= $item->caption ?>">
-            <figcaption><?= $item->caption ?></figcaption>
+            <img src="<?= $item['image'] ?>" alt="<?= $item['alt'] ?>">
+            <figcaption><?= $item['caption'] ?></figcaption>
         </figure><!--
     --><?php
     }
@@ -95,11 +90,8 @@ use frontend\models\SlideshowItem;
 <script>
 /* SLIDESHOW: BEGIN */
 // CONFIG
-var _time_slide = 300; // mili second
-var _time_out = 3000; // mili second
-var _auto_run = true;
-var _pause_on_hover = true;
-
+var opts = <?= json_encode($options) ?>;
+// opts = {"auto_run":true,"time_slide":300,"time_out":3000,"pause_on_hover":true}
 // PARAMS
 var bt_prev = document.getElementById("slideshow-bt-prev");
 var bt_next = document.getElementById("slideshow-bt-next");
@@ -117,7 +109,7 @@ window.addEventListener("resize", function(){
 function setParams() {
     w = window.getComputedStyle(a, null).getPropertyValue("width");
     x = 0;
-    c.style.transition = "margin " + String(0.001 * parseInt(_time_slide)) + "s ease";
+    c.style.transition = "margin " + String(0.001 * parseInt(opts.time_slide)) + "s ease";
 }
 function run() {
     setParams();
@@ -127,16 +119,16 @@ function run() {
     bt_prev.addEventListener("click", function() {
         prev();
     });
-    if (_auto_run) {
-        var auto_run = setInterval(function() {next();}, _time_out);
-        if (_pause_on_hover) {
+    if (opts.auto_run) {
+        var auto_run = setInterval(function() {next();}, opts.time_out);
+        if (opts.pause_on_hover) {
             g.addEventListener("mouseover", function() {
                 clearInterval(auto_run);
             });
             g.addEventListener("mouseout", function() {
                 auto_run = setInterval(function() {
                     next();
-                }, _time_out); 
+                }, opts.time_out); 
             });
         }
     }
