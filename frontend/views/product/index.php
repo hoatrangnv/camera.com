@@ -1,5 +1,5 @@
 <?= $this->render('//modules/breadcrumbs') ?>
-
+<div class="col-6">
 <?= $this->render('//modules/slideshow', [
     'data' => $images,
     'options' => [
@@ -9,3 +9,4 @@
 //        'pause_on_hover' => true,
     ]
 ]) ?>
+</div>

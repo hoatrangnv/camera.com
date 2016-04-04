@@ -182,13 +182,18 @@ body {
 .product-item img {
     width: 100%;
 }
-
-
+.breadcrumbs > a:not(:last-child)::after {
+    content: "»";
+}
 .main-container {
     min-height: calc(40vw);
 }
 .footer {
     padding: 1em 0.2em;
+}
+.col-6 {
+    width: 50%;
+    float: left;
 }
 
 @media screen and (max-width: 768px) {
@@ -226,5 +231,8 @@ body {
         -ms-transition: all 0.3s ease;
         -moz-transition: all 0.3s ease;
         -webkit-transition: all 0.3s ease;
+    }
+    .col-6 {
+        width: 100%;
     }
 }
