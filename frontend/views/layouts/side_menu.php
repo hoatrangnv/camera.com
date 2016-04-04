@@ -35,7 +35,7 @@ $menu = Menu::getTopParents();
         <li <?= $item->isCurrent() ? 'class="active"' : '' ?>>
             <?= $item->a() ?>
             <?php
-            if ($item->getChildren() !== []) {
+            if (!empty($item->getChildren())) {
             ?>
             <button class="sub-bt <?= $item->isCurrent() ? 'open' : '' ?>"></button>
             <ul>
