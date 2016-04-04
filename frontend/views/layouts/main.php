@@ -31,7 +31,7 @@ AppAsset::register($this);
             <div class="clr"></div>
         </header>
         <div class="main-container">
-            <?php // require_once 'side_menu.php'; ?>
+            <?php require_once 'side_menu.php'; ?>
             <div class="content">
                 <?= $content ?>
             </div>
