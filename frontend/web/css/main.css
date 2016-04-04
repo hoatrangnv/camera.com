@@ -183,7 +183,7 @@ body {
     width: 100%;
 }
 .breadcrumbs > a:not(:first-child)::before {
-    content: "» ";
+    content: " » ";
 }
 .main-container {
     min-height: calc(40vw);
