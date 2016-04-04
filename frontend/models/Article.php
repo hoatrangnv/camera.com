@@ -2,10 +2,9 @@
 
 namespace frontend\models;
 
-use common\utils\Common;
+use common\utils\StringUtils;
 use Yii;
 use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
 /**
@@ -44,69 +43,6 @@ use yii\helpers\Url;
  */
 class Article extends \common\models\Article
 {
-
-    public $a = '';
-    public $img = '';
-
-    public function astrong($params = '', $value = '') {
-        return $this->a($params, $value, true);
-    }
-
-    public function a($params = '', $value = '', $strong = false) {
-        $result = "<a href=\"{$this->getLink()}\" title=\"" . str_replace("\"", "'", $this->name) . "\"";
-        if (is_array($params)) {
-            if (count($params) > 0) {
-                foreach ($params as $attr => $val) {
-                    if ($attr == 0) {
-                        $result .= "class=\"$val\"";
-                    } else if ($attr == 1) {
-                        $result .= "id=\"$val\"";
-                    } else {
-                        $result .= $attr . "=\"$val\"";
-                    }
-                }
-            }
-        } else if ($params != '') {
-            $result .= "class=\"$params\"";
-        }
-        $ins_opentag = '';
-        $ins_closetag = '';
-        if ($strong) {
-            $ins_opentag = '<strong>';
-            $ins_closetag = '</strong>';
-        }
-        if ($value != '') {
-            $result .= ">$ins_opentag{$value}$ins_closetag</a>";
-        } else {
-            $result .= ">$ins_opentag{$this->name}$ins_closetag</a>";
-        }
-        return $result;
-    }
-
-    public function img($suffix = null, $params = []) {
-        $result = "<img title=\"" . str_replace("\"", "'", $this->name) . "\" alt=\"" . str_replace("\"", "'", $this->name) . "\"";
-        $has_src = false;
-        if (is_array($params)) {
-            foreach ($params as $attr => $val) {
-                if ($attr == 0) {
-                    $result .= "class=\"$val\"";
-                } else if ($attr == 1) {
-                    $result .= "id=\"$val\"";
-                } else {
-                    $result .= "$attr=\"$val\"";
-                }
-                if ($attr == 'src') {
-                    $has_src = true;
-                }
-            }
-        } else if ($params != '') {
-            $result .= "class=\"$params\"";
-        }
-        if (!$has_src) {
-            $result .= "src=\"{$this->getImage($suffix, true)}\">";
-        }
-        return $result;
-    }
 
     /**
      * function ->getImage ($suffix, $refresh)
@@ -213,7 +149,7 @@ class Article extends \common\models\Article
     
     public function summary($column = 'description', $length = 40)
     {
-        return Common::summaryText($this->$column, $length);
+        return StringUtils::summaryText($this->$column, $length);
     }
     
     public function date($column = 'published_at', $format = 'd-m-Y H:i')

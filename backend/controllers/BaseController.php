@@ -2,7 +2,10 @@
 namespace backend\controllers;
 
 use backend\models\ProductCategory;
+use backend\models\ProductToProductCategory;
 use backend\models\Tag;
+use frontend\models\ArticleCategory;
+use frontend\models\ArticleToArticleCategory;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 
@@ -10,21 +13,40 @@ use yii\web\Controller;
  * Base controller
  */
 class BaseController extends Controller {
-    public $product_id, $tags_idToName, $articleCategories_idToName, $parent_articleCategories_idToName, $productCategories_idToName, $parent_productCategories_idToName;
+    public $product_id, $tags_idToName;
+    public $ncp, $ncpc, $nca, $ncac;
     public function init() {
         parent::init();
         $this->tags_idToName = ArrayHelper::map(Tag::find()->all(), 'id', 'name');
         
-        $this->parent_articleCategories_idToName = ArrayHelper::map(ProductCategory::find()->where(['parent_id' => null])->all(), 'id', 'slug');
-        foreach ($this->parent_articleCategories_idToName as $id => $slug) {
-            $this->articleCategories_idToName[$slug] = ArrayHelper::map(ProductCategory::find()->where(['parent_id' => $id])->all(), 'id', 'slug');
+        /////////////////
+        $ncp = [];
+        $ncpc = [];
+        $product_categories = ProductCategory::find()->all();
+        foreach ($product_categories as $item) {
+           if (!ProductToProductCategory::find()->where(['product_category_id' => $item->id])->one()) {
+               $ncp[$item->id] = $item->name;
+           }
+           if (!ProductCategory::find()->where(['parent_id' => $item->id])->one()) {
+               $ncpc[$item->id] = $item->name;
+           }
         }
-        is_array($this->articleCategories_idToName) or $this->articleCategories_idToName = array();
+        $this->ncp = $ncp;
+        $this->ncpc = $ncpc;
         
-        $this->parent_productCategories_idToName = ArrayHelper::map(ProductCategory::find()->where(['parent_id' => null])->all(), 'id', 'slug');
-        foreach ($this->parent_productCategories_idToName as $id => $slug) {
-            $this->productCategories_idToName[$slug] = ArrayHelper::map(ProductCategory::find()->where(['parent_id' => $id])->all(), 'id', 'slug');
+        /////////////////
+        $nca = [];
+        $ncac = [];
+        $article_categories = ArticleCategory::find()->all();
+        foreach ($article_categories as $item) {
+           if (!ArticleToArticleCategory::find()->where(['article_category_id' => $item->id])->one()) {
+               $nca[$item->id] = $item->name;
+           }
+           if (!ArticleCategory::find()->where(['parent_id' => $item->id])->one()) {
+               $ncac[$item->id] = $item->name;
+           }
         }
-        is_array($this->productCategories_idToName) or $this->productCategories_idToName = array();
+        $this->nca = $nca;
+        $this->ncac = $ncac;
     }
 }

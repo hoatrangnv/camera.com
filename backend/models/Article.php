@@ -85,7 +85,6 @@ class Article extends \yii\db\ActiveRecord
     }
     
     public $_article_category;
-
     public function getArticleCategory() {
         if (empty($this->_article_category)) {
             if ($articleToArticleCategory = ArticleToArticleCategory::findOne(['article_id' => $this->id])) {

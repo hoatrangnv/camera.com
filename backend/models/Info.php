@@ -6,58 +6,30 @@ use common\utils\FileUtils;
 use Yii;
 
 /**
- * This is the model class for table "slideshow_item".
+ * This is the model class for table "info".
  *
  * @property integer $id
- * @property string $image
- * @property string $image_path
- * @property string $link
- * @property string $caption
- * @property integer $position
+ * @property string $name
+ * @property integer $type
+ * @property string $slug
  * @property integer $is_active
+ * @property string $page_title
+ * @property string $h1
+ * @property string $meta_title
+ * @property string $meta_description
+ * @property string $meta_keywords
+ * @property string $long_description
+ * @property string $description
+ * @property string $content
+ * @property string $image_path
+ * @property string $old_slugs
  * @property integer $created_at
  * @property string $created_by
  * @property integer $updated_at
  * @property string $updated_by
  */
-class SlideshowItem extends \yii\db\ActiveRecord
+class Info extends \common\models\Info
 {
-        
-    /**
-    * function ->getImage ($suffix, $refresh)
-    */
-    public $_image;
-    public function getImage ($suffix = null, $refresh = false)
-    {
-        if ($this->_image === null || $refresh == true) {
-            $this->_image = FileUtils::getImage([
-                'imageName' => $this->image,
-                'imagePath' => $this->image_path,
-                'imagesFolder' => Yii::$app->params['images_folder'],
-                'imagesUrl' => Yii::$app->params['images_url'],
-                'suffix' => $suffix,
-                'defaultImage' => Yii::$app->params['default_image']
-            ]);
-        }
-        return $this->_image;
-    }
-    
-    /**
-    * function ->getLink ()
-    */
-    public $_link = '';
-    public function getLink ()
-    {
-        if ($this->_link === '') {
-            $_link = '';
-            if (true) {
-                // Put code here
-                
-            }
-            $this->_link = $_link;
-        }
-        return $this->_link;
-    }
 
     /**
     * function ::create ($data)
@@ -66,12 +38,12 @@ class SlideshowItem extends \yii\db\ActiveRecord
     {
         $now = strtotime('now');
         $username = Yii::$app->user->identity->username;  
-        $model = new SlideshowItem();
+        $model = new Info();
         if($model->load($data)) {
             if ($log = new UserLog()) {
                 $log->username = $username;
                 $log->action = 'Create';
-                $log->object_class = 'SlideshowItem';
+                $log->object_class = 'Info';
                 $log->created_at = $now;
                 $log->is_success = 0;
                 $log->save();
@@ -87,18 +59,22 @@ class SlideshowItem extends \yii\db\ActiveRecord
             $targetFolder = Yii::$app->params['images_folder'] . $model->image_path;
             $targetUrl = Yii::$app->params['images_url'] . $model->image_path;
             
-            if (!empty($data['slideshowitem-image'])) {
-                $copyResult = FileUtils::copyImage([
-                    'imageName' => $model->image,
-                    'fromFolder' => Yii::$app->params['uploads_folder'],
-                    'toFolder' => $targetFolder,
-                    'resize' => [[120, 120], [200, 200]],
-                    'removeInputImage' => true,
-                ]);
-                if ($copyResult['success']) {
-                    $model->image = $copyResult['imageName'];
-                }
-            }
+                    
+            $model->long_description = FileUtils::copyContentImages([
+                'content' => $model->long_description,
+                'defaultFromFolder' => Yii::$app->params['uploads_folder'],
+                'toFolder' => $targetFolder,
+                'toUrl' => $targetUrl,
+                'removeInputImage' => true,
+            ]);
+                    
+            $model->content = FileUtils::copyContentImages([
+                'content' => $model->content,
+                'defaultFromFolder' => Yii::$app->params['uploads_folder'],
+                'toFolder' => $targetFolder,
+                'toUrl' => $targetUrl,
+                'removeInputImage' => true,
+            ]);
             if ($model->save()) {
                 if ($log) {
                     $log->object_pk = $model->id;
@@ -124,7 +100,7 @@ class SlideshowItem extends \yii\db\ActiveRecord
             if ($log = new UserLog()) {
                 $log->username = $username;
                 $log->action = 'Update';
-                $log->object_class = 'SlideshowItem';
+                $log->object_class = 'Info';
                 $log->object_pk = $this->id;
                 $log->created_at = $now;
                 $log->is_success = 0;
@@ -133,6 +109,12 @@ class SlideshowItem extends \yii\db\ActiveRecord
             
             $this->updated_at = $now;
             $this->updated_by = $username;
+            if ($this->slug != $this->getOldAttribute('slug')) {
+                $old_slugs_arr = json_decode($this->old_slugs, true);
+                is_array($old_slugs_arr) or $old_slugs_arr = array();
+                $old_slugs_arr[$now] = $this->getOldAttribute('slug');
+                $this->old_slugs = json_encode($old_slugs_arr);
+            }
                   
             if ($this->image_path != null && trim($this->image_path) != '' && is_dir(Yii::$app->params['images_folder'] . $this->image_path)) {
                 $path = $this->image_path;
@@ -145,18 +127,20 @@ class SlideshowItem extends \yii\db\ActiveRecord
             $targetFolder = Yii::$app->params['images_folder'] . $this->image_path;
             $targetUrl = Yii::$app->params['images_url'] . $this->image_path;
             
-            if (!empty($data['slideshowitem-image'])) {
-                $copyResult = FileUtils::copyImage([
-                    'imageName' => $this->image,
-                    'fromFolder' => Yii::$app->params['uploads_folder'],
-                    'toFolder' => $targetFolder,
-                    'resize' => [[120, 120], [200, 200]],
-                    'removeInputImage' => true,
-                ]);
-                if ($copyResult['success']) {
-                    $this->image = $copyResult['imageName'];
-                }
-            }
+            $this->long_description = FileUtils::copyContentImages([
+                'content' => $this->long_description,
+                'defaultFromFolder' => Yii::$app->params['uploads_folder'],
+                'toFolder' => $targetFolder,
+                'toUrl' => $targetUrl,
+                'removeInputImage' => true,
+            ]);
+            $this->content = FileUtils::copyContentImages([
+                'content' => $this->content,
+                'defaultFromFolder' => Yii::$app->params['uploads_folder'],
+                'toFolder' => $targetFolder,
+                'toUrl' => $targetUrl,
+                'removeInputImage' => true,
+            ]);
             
             if ($this->save()) {
                 if ($log) {
@@ -181,7 +165,7 @@ class SlideshowItem extends \yii\db\ActiveRecord
         if ($log = new UserLog()) {
             $log->username = $username;
             $log->action = 'Delete';
-            $log->object_class = 'SlideshowItem';
+            $log->object_class = 'Info';
             $log->object_pk = $model->id;
             $log->created_at = $now;
             $log->is_success = 0;
@@ -197,28 +181,6 @@ class SlideshowItem extends \yii\db\ActiveRecord
         }
         return false;
     }
-    
-    /**
-     * @inheritdoc
-     */
-    public static function tableName()
-    {
-        return 'slideshow_item';
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function rules()
-    {
-        return [
-            [['created_at'], 'required'],
-            [['position', 'is_active'], 'integer'],
-            [['image', 'image_path', 'created_at', 'updated_at'], 'safe'],
-            [['image', 'image_path', 'link', 'caption'], 'string', 'max' => 511],
-            [['created_by', 'updated_by'], 'string', 'max' => 255]
-        ];
-    }
 
     /**
      * @inheritdoc
@@ -227,12 +189,20 @@ class SlideshowItem extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'image' => 'Image',
-            'image_path' => 'Image Path',
-            'link' => 'Link',
-            'caption' => 'Caption',
-            'position' => 'Position',
+            'name' => 'Name',
+            'type' => 'Type',
+            'slug' => 'Slug',
             'is_active' => 'Is Active',
+            'page_title' => 'Page Title',
+            'h1' => 'H1',
+            'meta_title' => 'Meta Title',
+            'meta_description' => 'Meta Description',
+            'meta_keywords' => 'Meta Keywords',
+            'long_description' => 'Long Description',
+            'description' => 'Description',
+            'content' => 'Content',
+            'image_path' => 'Image Path',
+            'old_slugs' => 'Old Slugs',
             'created_at' => 'Created At',
             'created_by' => 'Created By',
             'updated_at' => 'Updated At',

@@ -27,7 +27,7 @@ use yii\widgets\ActiveForm;
 		<?= $form->field($model, 'is_hot')->checkbox() ?>
     </div>
     <div class="col-md-6">
-		<?= $form->field($model, 'parent_id')->dropDownList($this->context->parent_articleCategories_idToName, ['prompt' => '']) ?>
+		<?= $form->field($model, 'parent_id')->dropDownList($this->context->nca, ['prompt' => 'Chọn']) ?>
 		<?= $form->field($model, 'position')->textInput() ?>
 		<?= $form->field($model, 'page_title')->textInput(['maxlength' => true]) ?>
 		<?= $form->field($model, 'h1')->textInput(['maxlength' => true]) ?>

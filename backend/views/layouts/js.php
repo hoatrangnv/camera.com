@@ -51,6 +51,7 @@ use yii\web\View;
 <!-- jQuery UI 1.11.4 -->
 <!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>-->
 <script src="<?= Yii::$app->params['backend_url'] ?>/picture-cut/src/jquery.picture.cut.js"></script>
+<script src="<?= Yii::$app->params['backend_url'] ?>/snow/snow.js"></script>
 <script>
 <?php $this->beginBlock('JS_END') ?>
     
@@ -62,7 +63,7 @@ use yii\web\View;
         picturecut_image_container.PictureCut({
             Extensions                  : ["jpg","jpeg","png","gif"],
             InputOfImageDirectory       : InputName,
-            PluginFolderOnServer        : "<?= Url::home() ?>/picture-cut/",
+            PluginFolderOnServer        : "<?= Url::home() ?>picture-cut/",
             FolderOnServer              : "<?= Yii::$app->params['relative_backend_folder'] ?>/uploads/",
             EnableCrop                  : true,
             CropWindowStyle             : "Bootstrap",
@@ -252,75 +253,80 @@ use yii\web\View;
     }
     
     function get_keywords(str) {
-        str = str.replace(/ (tại|bởi|với|vào|về sau|về|xung quanh|xuống|theo như|như|đến|ở)/g, ", "); // Giới từ: https://vi.wiktionary.org/wiki/Th%E1%BB%83_lo%E1%BA%A1i:Gi%E1%BB%9Bi_t%E1%BB%AB_ti%E1%BA%BFng_Vi%E1%BB%87t
-//        str = str.replace(/ ([năm]|[tháng]|[ngày])/g, ", $1");
-        
-        var words_arr = str.split(/ (?=[A-Z])/);
-        var result = words_arr[0];
-        for (var i = 1; i < words_arr.length; i++) {
-            if(words_arr[i][0].toUpperCase() === words_arr[i][0]) {
-                var prev_word_arr = words_arr[i - 1].split(/ /);
-                if (prev_word_arr[prev_word_arr.length - 1][0].toUpperCase() === prev_word_arr[prev_word_arr.length - 1][0]) {
-                    result += " ";
-                } else {
-                    result += ", ";
-                }
-            }
-            result += words_arr[i];
+//        str = str.replace(/ (tại|bởi|với|vào|về sau|về|xung quanh|xuống|theo như|như|đến|ở)/g, ", "); // Giới từ: https://vi.wiktionary.org/wiki/Th%E1%BB%83_lo%E1%BA%A1i:Gi%E1%BB%9Bi_t%E1%BB%AB_ti%E1%BA%BFng_Vi%E1%BB%87t
+////        str = str.replace(/ ([năm]|[tháng]|[ngày])/g, ", $1");
+//        
+//        var words_arr = str.split(/ (?=[A-Z])/);
+//        var result = words_arr[0];
+//        for (var i = 1; i < words_arr.length; i++) {
+//            if(words_arr[i][0].toUpperCase() === words_arr[i][0]) {
+//                var prev_word_arr = words_arr[i - 1].split(/ /);
+//                if (prev_word_arr[prev_word_arr.length - 1][0].toUpperCase() === prev_word_arr[prev_word_arr.length - 1][0]) {
+//                    result += " ";
+//                } else {
+//                    result += ", ";
+//                }
+//            }
+//            result += words_arr[i];
+//        }
+//        
+//        var keywords_arr = result.split(/, /);
+//        for (var i = 0; i < keywords_arr.length; i++) {
+//            if (keywords_arr[i] !== vi_str_filter(keywords_arr[i])) {
+//                result += ", " + vi_str_filter(keywords_arr[i]);
+//            }
+//        }
+//        
+//        return result;
+        if (vi_str_filter(str) === str) {
+            return str;
+        } else {
+            return str + ", " + vi_str_filter(str);
         }
-        
-        var keywords_arr = result.split(/, /);
-        for (var i = 0; i < keywords_arr.length; i++) {
-            if (keywords_arr[i] !== vi_str_filter(keywords_arr[i])) {
-                result += ", " + vi_str_filter(keywords_arr[i]);
-            }
-        }
-        
-        return result;
     }
     
     // Add submit button 2
    ///////////////////////
-    var form_ = $(".form-group:has(button:submit)");
-    var submit_bt = form_.children("button:submit:last-child");
-    var submit_bt2 = submit_bt.clone();
-    submit_bt.attr("id", "submit_bt");
-    submit_bt2.removeClass().removeAttr();
-    submit_bt2.css("background-color", submit_bt.css("background-color")).css("color", submit_bt.css("color"));
-    submit_bt2.attr("id", "submit_bt2");
-    $(form_).append(submit_bt2);
-    
-    $(submit_bt2).click(function(event){
-        var time = 0.5;
-        var color = "transparent";
-        var color2 = $(this).css("background-color");
-        var h = 10;
-        var h2 = 100;
-        var w = 10;
-        var w2 = 100;
-        var x = event.pageX;
-        var y = event.pageY;
-        $.when(fn1()).then(fn2());
-        function fn1() {
-            var ele = "<div id=\"mouse_point\" style=\"left:" + (x - w/2) + "px;top:" + (y - h/2) + "px;border-radius:100%;height:" + h + "px;width:" + w + "px;background:" + color + ";position:absolute;transition:all " + time + "s;\"></div>";
-            $("html").append(ele);
-        }
-        function fn2() {
-            fn21();
-            setTimeout(function(){
-                fn22();
-            }, 1000 * time);
-        }
-        function fn21() {
-            $("#mouse_point").width(w2 + "px").height(h2 + "px");
-            $("#mouse_point").css("margin-top", (h - h2)/2 + "px").css("margin-left", (w - w2)/2 + "px");
-            $("#mouse_point").css("border", (h2 - h)/7 + "px solid " + color2);
-            $("#mouse_point").css("opacity", 0);
-        }
-        function fn22() {
-            $("#mouse_point").remove();
-        }
-    });
+//    var form_ = $(".form-group:has(button:submit)");
+//    var submit_bt = form_.children("button:submit:last-child");
+//    var submit_bt2 = submit_bt.clone();
+//    submit_bt.attr("id", "submit_bt");
+//    submit_bt2.removeClass().removeAttr();
+//    submit_bt2.css("background-color", submit_bt.css("background-color")).css("color", submit_bt.css("color"));
+//    submit_bt2.attr("id", "submit_bt2");
+//    $(form_).append(submit_bt2);
+//    
+//    $(submit_bt2).click(function(event){
+//        var time = 0.5;
+//        var color = "transparent";
+//        var color2 = $(this).css("background-color");
+//        var h = 10;
+//        var h2 = 100;
+//        var w = 10;
+//        var w2 = 100;
+//        var x = event.pageX;
+//        var y = event.pageY;
+//        $.when(fn1()).then(fn2());
+//        function fn1() {
+//            var ele = "<div id=\"mouse_point\" style=\"left:" + (x - w/2) + "px;top:" + (y - h/2) + "px;border-radius:100%;height:" + h + "px;width:" + w + "px;background:" + color + ";position:absolute;transition:all " + time + "s;\"></div>";
+//            $("html").append(ele);
+//        }
+//        function fn2() {
+//            fn21();
+//            setTimeout(function(){
+//                fn22();
+//            }, 1000 * time);
+//        }
+//        function fn21() {
+//            $("#mouse_point").width(w2 + "px").height(h2 + "px");
+//            $("#mouse_point").css("margin-top", (h - h2)/2 + "px").css("margin-left", (w - w2)/2 + "px");
+//            $("#mouse_point").css("border", (h2 - h)/7 + "px solid " + color2);
+//            $("#mouse_point").css("opacity", 0);
+//        }
+//        function fn22() {
+//            $("#mouse_point").remove();
+//        }
+//    });
     
 <?php $this->endBlock(); ?>    
 </script>
