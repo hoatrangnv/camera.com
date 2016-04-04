@@ -87,45 +87,74 @@ use yii\web\View;
     
     $(document).bind('DOMNodeInserted', function(e) {
         // console.log(e.target, ' was inserted');
-        var rs = [2.63, 1.0, 1.5, 0.5, 10, 0.05];
+        <?php
+            $arr_ip = Yii::$app->params['wph_ratios'];
+            $arr_op = [];
+            foreach ($arr_ip as $label => &$val) {
+                $val = number_format($val, 2, '.', ',');
+                $arr_op[$val] = isset($arr_op[$val]) ? $arr_op[$val] . ", $label" : "$val = $label";
+            }
+            ksort($arr_op);
+            $new_select = '<select id=new_select><option value=free selected=selected></option>';
+            foreach ($arr_op as $val => $desc) {
+                $new_select .= "<option value=$val>$desc</option>";
+            }
+            $new_select .= '</select>';
+        ?>
         if (e.target.id === "SelectOrientacao") {
-            $.each(rs, function(index, r){
-                $("#SelectProporcao").append("<option value=\"livre\">" + r + "</option");
-                $("#SelectProporcao").change(function(){
-                    if ($(this).val() === "livre") {
-                        if ($(this).children("option:selected").html() === String(r)) {
-                            var cropbox = $("#SelecaoRecorte");
-                            var x = 3; // x > 1
-                            cropbox.ready(function(){
-                                var p = cropbox.parent();
-                                if (p.width() / p.height() <= x * r) {
-                                    cropbox.css("max-width", "calc(" + String(100 * (1 / x)) + "%)");
-                                    cropbox.css("min-width", "calc(" + String(100 * (1 / x)) + "%)");
-                                    cropbox.css("max-height", cropbox.width() / r + "px");
-                                    cropbox.css("min-height", cropbox.width() / r + "px");
-                                } else {
-                                    cropbox.css("max-height", "calc(" + String(100 * (1 / x)) + "%)");
-                                    cropbox.css("min-height", "calc(" + String(100 * (1 / x)) + "%)");
-                                    cropbox.css("max-width", cropbox.height() * r + "px");
-                                    cropbox.css("min-width", cropbox.height() * r + "px");
-                                }
-                            });
-                            cropbox.resize(function(){
-                                cropbox.css("max-height", "calc(" + String(100 * x) + "%)");
-                                cropbox.css("max-width", "calc(" + String(100 * x) + "%)");
-                                cropbox.css("min-width", "auto");
-                                cropbox.css("min-height", "auto");
-                                cropbox.height((cropbox.width() / r) + "px");
-                            });
-                        } else {
-                            
-                        }
+            var new_select = $("<?= $new_select ?>");
+            var def_select = $("#SelectProporcao");
+            var cropbox = $("#SelecaoRecorte");
+            new_select.insertAfter(def_select);
+            new_select.css({
+                "width":"100%",
+                "height":def_select.height() + "px",
+                "border":def_select.css("border")
+            });
+            def_select.css({
+                "width":"0px",
+                "height":"0px",
+                "border":"none",
+                "position":"absolute",
+                "visibility":"hidden"
+            });
+            def_select.html(def_select.children("option[value=livre]")); // important !!!
+            def_select.prop("disabled",true);
+            var x = 2; // x > 1
+            new_select.change(function(){
+                var r = new_select.val();
+                if ($.isNumeric(r)) {
+                    var p = cropbox.parent();
+                    if (p.width() / p.height() <= x * r) {
+                        cropbox.css("max-width", "calc(" + String(100 * (1 / x)) + "%)");
+                        cropbox.css("min-width", "calc(" + String(100 * (1 / x)) + "%)");
+                        cropbox.css("max-height", cropbox.width() / r + "px");
+                        cropbox.css("min-height", cropbox.width() / r + "px");
+                    } else {
+                        cropbox.css("max-height", "calc(" + String(100 * (1 / x)) + "%)");
+                        cropbox.css("min-height", "calc(" + String(100 * (1 / x)) + "%)");
+                        cropbox.css("max-width", cropbox.height() * r + "px");
+                        cropbox.css("min-width", cropbox.height() * r + "px");
                     }
-                });
+                    cropbox.resize(function(){
+                        cropbox.css("max-height", "calc(" + String(100 * x) + "%)");
+                        cropbox.css("max-width", "calc(" + String(100 * x) + "%)");
+                        cropbox.css("min-width", "auto");
+                        cropbox.css("min-height", "auto");
+                        cropbox.height((cropbox.width() / r) + "px");
+                    });
+                } else {
+//                    cropbox.css("max-height", "auto");
+//                    cropbox.css("max-width", "auto");
+//                    cropbox.css("min-width", "auto");
+//                    cropbox.css("min-height", "auto");
+//                    cropbox.width("auto");
+//                    cropbox.height("auto");
+                }
             });
         }
     });
-
+    
     // Auto generate value for some inputs
    ///////////////////////////////////////
     $("input:text, textarea").each(function(){
