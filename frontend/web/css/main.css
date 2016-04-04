@@ -182,8 +182,8 @@ body {
 .product-item img {
     width: 100%;
 }
-.breadcrumbs > a:not(:last-child)::after {
-    content: "»";
+.breadcrumbs > a:not(:fist-child)::before {
+    content: "» ";
 }
 .main-container {
     min-height: calc(40vw);
