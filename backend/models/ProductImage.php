@@ -16,7 +16,7 @@ use Yii;
  *
  * @property Product $product
  */
-class ProductImage extends \yii\db\ActiveRecord
+class ProductImage extends \common\models\ProductImage
 {
 //        
 //    /**
