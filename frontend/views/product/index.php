@@ -10,3 +10,19 @@
     ]
 ]) ?>
 </div>
+<div class="col-6">
+    <h1><?= $product->name ?></h1>
+    <p class="price"><?= $product->currency('price') ?></p>
+    <?php
+    if ($product->original_price > $product->price) {
+    ?>
+    <p class="o-price"><?= $product->currency('original_price') ?></p>
+    <?php
+    }
+    ?>
+    <p><?= $product->description ?></p>
+</div>
+<div class="col-12">
+    <h2>Chi tiết sản phẩm</h2>
+    <?= $product->details ?>
+</div>

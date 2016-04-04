@@ -12,5 +12,8 @@ class Product extends ActiveRecord {
         'small' => [120, 120],
         'tiny' => [60, 60],
     ];
+    public function currency ($column) {
+        return I18n::currency($this->$column);
+    }
     
 }

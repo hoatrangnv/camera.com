@@ -101,7 +101,7 @@ use yii\widgets\ActiveForm;
     </div>
     
     <div class="col-md-12">
-        <?= $form->field($model, 'long_description')->widget(CKEditor::className(), [
+        <?php /* echo $form->field($model, 'long_description')->widget(CKEditor::className(), [
             'preset' => 'full',
             'clientOptions' => [
                 'height' => 400,
@@ -110,7 +110,7 @@ use yii\widgets\ActiveForm;
                 'image_previewText' => '&nbsp;',
                 'filebrowserUploadUrl' => Url::to(['file/ckeditor-upload-image'], true),
             ],
-        ]) ?>
+        ]) */ ?>
         <?= $form->field($model, 'details')->widget(CKEditor::className(), [
             'preset' => 'full',
             'clientOptions' => [

@@ -178,12 +178,7 @@ class Product extends \common\models\Product
         }
         return $this->_link;
     }
-    
-    public function currency($column)
-    {
-        return $this->$column;
-    }    
-    
+        
 
     public $_product_category;
 
