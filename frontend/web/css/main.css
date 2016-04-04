@@ -182,6 +182,10 @@ body {
 .product-item img {
     width: 100%;
 }
+.breadcrumbs li {
+    list-style: none;
+    display: inline;
+}
 .breadcrumbs > li:not(:first-child)::before {
     content: " » ";
 }

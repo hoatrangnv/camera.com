@@ -1,3 +1,4 @@
+<?= $this->render('//modules/breadcrumbs') ?>
 <section class="products-group">
     <h1><?= $cate->name ?></h1>
     <div class="list">
