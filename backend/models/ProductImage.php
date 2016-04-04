@@ -18,25 +18,25 @@ use Yii;
  */
 class ProductImage extends \yii\db\ActiveRecord
 {
-        
-    /**
-    * function ->getImage ($suffix, $refresh)
-    */
-    public $_image;
-    public function getImage ($suffix = null, $refresh = false)
-    {
-        if ($this->_image === null || $refresh == true) {
-            $this->_image = FileUtils::getImage([
-                'imageName' => $this->image,
-                'imagePath' => $this->image_path,
-                'imagesFolder' => Yii::$app->params['images_folder'],
-                'imagesUrl' => Yii::$app->params['images_url'],
-                'suffix' => $suffix,
-                'defaultImage' => Yii::$app->params['default_image']
-            ]);
-        }
-        return $this->_image;
-    }
+//        
+//    /**
+//    * function ->getImage ($suffix, $refresh)
+//    */
+//    public $_image;
+//    public function getImage ($suffix = null, $refresh = false)
+//    {
+//        if ($this->_image === null || $refresh == true) {
+//            $this->_image = FileUtils::getImage([
+//                'imageName' => $this->image,
+//                'imagePath' => $this->image_path,
+//                'imagesFolder' => Yii::$app->params['images_folder'],
+//                'imagesUrl' => Yii::$app->params['images_url'],
+//                'suffix' => $suffix,
+//                'defaultImage' => Yii::$app->params['default_image']
+//            ]);
+//        }
+//        return $this->_image;
+//    }
 
     /**
     * function ::create ($data)
