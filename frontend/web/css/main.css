@@ -199,6 +199,10 @@ body {
     width: 50%;
     float: left;
 }
+.col-12 {
+    width: 100%;
+    float: left;
+}
 
 @media screen and (max-width: 768px) {
     .content {
