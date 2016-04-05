@@ -5,8 +5,8 @@
     'options' => [
         'auto_run' => false,
         'time_slide' => 300,
-//        'time_out' => 3000
-//        'pause_on_hover' => true,
+        'time_out' => 3000,
+        'pause_on_hover' => true,
     ]
 ]) ?>
 </div>
