@@ -67,9 +67,8 @@
 }
 .bt-prev > span,
 .bt-next > span {
-    font-family:  Consolas;
-    font-family: Futura;
-    font-size: 2.5em;
+    font-family:  Consolas, Futura;
+    font-size: 2em;
     color: #fff;
     text-shadow: 0 0 1px #000;
     -ms-text-shadow: 0 0 1px #000;
