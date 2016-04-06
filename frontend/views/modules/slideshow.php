@@ -11,8 +11,8 @@
     ?>
         </div>
     </div>
-    <button class="bt-prev"><span>&lt;</span></button>
-    <button class="bt-next"><span>&gt;</span></button>
+    <button class="bt-prev"><span>&lsaquo;</span></button>
+    <button class="bt-next"><span>&rsaquo;</span></button>
 </div>
 
 <style>
@@ -67,8 +67,8 @@
 }
 .bt-prev > span,
 .bt-next > span {
-    font-family: Consolas, "Lucida Console", "Segoe Ui";
-    font-size: 2.1em;
+    font-family: "Lucida Console", "Lucida Sans Typewriter";
+    font-size: 2.5em;
     color: #fff;
     text-shadow: 0 0 1px #000;
     -ms-text-shadow: 0 0 1px #000;
