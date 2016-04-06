@@ -5,9 +5,12 @@ namespace frontend\controllers;
 use frontend\models\Article;
 use frontend\models\Redirect;
 use Yii;
+use yii\helpers\Url;
 
 class ArticleController extends BaseController
 {
+    const ITEMS_PER_PAGE = 10;
+    
     public function actionIndex()
     {
         $slug = Yii::$app->request->get('slug', '');
@@ -67,5 +70,43 @@ class ArticleController extends BaseController
             }
         }
     }
+    
+    public function actionViewAll()
+    {
+        $this->link_canonical = Url::to(['article/view-all'], true);
+        $this->breadcrumbs[] = ['label' => 'Tin tức', 'url' => $this->link_canonical];
+        
+        $page = Yii::$app->request->get('page', 0);
+        if ($page > 0) {
+            $this->meta_index = 'noindex';
+            $this->meta_follow = 'nofollow';
+            $this->page_title .= " - trang $page";
+            $this->meta_keywords .= " - trang $page";
+            $this->meta_description .= " - trang $page";
+        }
+        $page = $page > 0 ? $page : 1;
+        
+        $articles = Article::getArticles([
+            'limit' => static::ITEMS_PER_PAGE,
+            'offset' => ($page - 1) * static::ITEMS_PER_PAGE,
+        ]);
+        
+        $totalItems = count(Article::getArticles());
 
+        $total = ceil($totalItems / static::ITEMS_PER_PAGE);
+        $firstItemOnPage = ($totalItems > 0) ? ($page-1) * static::ITEMS_PER_PAGE + 1 : 0;
+        $lastItemOnPage = ($totalItems < $page * static::ITEMS_PER_PAGE) ? $totalItems : $page * static::ITEMS_PER_PAGE;
+        $pagination = [
+            'firstItemOnPage' => $firstItemOnPage,
+            'lastItemOnPage' => $lastItemOnPage,
+            'totalItems' => $totalItems,
+            'current' => $page,
+            'total' => $total,
+        ];
+
+        return $this->render('view-all', [
+            'articles' => $articles,
+            'pagination' => $pagination,
+        ]);
+    }
 }

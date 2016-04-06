@@ -1,8 +1,6 @@
 <?php
 namespace common\models;
 
-use yii\db\ActiveRecord;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,7 +12,7 @@ use yii\db\ActiveRecord;
  *
  * @author quyet
  */
-class ProductCategory extends ActiveRecord {
+class ProductCategory extends Html {
     //put your code here
     public static $image_resizes = [
         'desktop' => [660, 660],

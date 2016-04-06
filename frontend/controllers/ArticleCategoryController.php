@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use frontend\models\ArticleCategory;
 use frontend\models\Redirect;
 use Yii;
+use yii\helpers\Url;
 
 class ArticleCategoryController extends BaseController
 {
@@ -18,6 +19,7 @@ class ArticleCategoryController extends BaseController
             if (!Redirect::compareUrl($this->link_canonical)) {
                 $this->redirect($this->link_canonical);
             }            
+            $this->breadcrumbs[] = ['label' => 'Tin tức', 'url' => Url::to(['article/view-all'], true)];
             $this->breadcrumbs[] = ['label' => $cate->name, 'url' => $this->link_canonical];
             
             if (!$this->seo_exist) {

@@ -25,22 +25,12 @@
                     </div>
                     <?= $this->render('//modules/comment', ['model' => $article]) ?>
                 </div>
-
             </div>
             <?= $this->render('//layouts/right') ?>
         </div>
     </div>
 </section>
 <?php
-$this->registerCss('
-//.news-rela .img-bn img {
-//    height: 100%;
-//    width: auto;
-//}    
-//.news-rela .img-bn {
-//    overflow: hidden;
-//}    
-');
 $this->registerJs('
 $(".content_news table, .content_news img").each(function(){
     var obj = $(this);

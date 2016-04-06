@@ -1,11 +1,11 @@
 <?= $this->render('//modules/breadcrumbs') ?>
 <section class="list-view">
-    <h1 class="title"><?= $cate->name ?></h1>
+    <h1 class="title">Tin tức</h1>
     <div class="list">
         <?php
-        foreach ($products as $item) {
+        foreach ($articles as $item) {
         ?>
-        <a class="thumb" href="<?= $item->getLink() ?>" title="<?= $item->name ?>">
+        <a class="detail" href="<?= $item->getLink() ?>" title="<?= $item->name ?>">
             <div class="img-wrap">
                 <img src="<?= $item->getImage() ?>" title="<?= $item->name ?>" alt="<?= $item->name ?>">
             </div>

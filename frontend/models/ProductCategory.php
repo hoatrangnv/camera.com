@@ -41,7 +41,7 @@ use yii\helpers\Url;
  * @property ProductToProductCategory[] $productToProductCategories
  * @property Product[] $products
  */
-class ProductCategory extends \common\models\Product
+class ProductCategory extends \common\models\ProductCategory
 {
     
 

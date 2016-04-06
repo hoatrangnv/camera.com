@@ -90,4 +90,23 @@ class Html extends ActiveRecord {
         return $result;
     }
     
+    /**
+    * function ->getBanner ($suffix, $refresh)
+    */
+    public $_banner;
+    public function getBanner ($suffix = null, $refresh = false)
+    {
+        if ($this->_banner === null || $refresh == true) {
+            $this->_banner = FileUtils::getImage([
+                'imageName' => $this->banner,
+                'imagePath' => $this->image_path,
+                'imagesFolder' => Yii::$app->params['images_folder'],
+                'imagesUrl' => Yii::$app->params['images_url'],
+                'suffix' => $suffix,
+                'defaultImage' => Yii::$app->params['default_image']
+            ]);
+        }
+        return $this->_banner;
+    }
+    
 }

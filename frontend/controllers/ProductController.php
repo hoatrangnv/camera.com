@@ -43,9 +43,9 @@ class ProductController extends BaseController
             foreach ($product_images as $item) {
                 $images[] = [
                     'caption' => '',
-                    'alt' => $product->name,
                     'link' => '#',
-                    'image' => $item->getImage()
+                    'img_alt' => $product->name,
+                    'img_src' => $item->getImage()
                 ];
             }
             
