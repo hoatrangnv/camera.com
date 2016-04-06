@@ -67,7 +67,7 @@
 }
 .bt-prev > span,
 .bt-next > span {
-    font-family: Consolas, "Lucida Console", "Courier New";
+    font-family: "Lucida Console", "Lucida Sans Typewriter";
     font-size: 2.5em;
     color: #fff;
     text-shadow: 0 0 1px #000;
