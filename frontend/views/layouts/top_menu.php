@@ -18,7 +18,7 @@ use yii\helpers\Url;
             </a>
         </li>
         <li>
-            <a href="" title="Tin tức">Tin tức</a>
+            <a href="<?= Url::to(['article/view-all']) ?>" title="Tin tức">Tin tức</a>
         </li>
         <li class="more">
             <a href="" title="Hướng dẫn mua hàng">Hướng dẫn mua hàng</a>

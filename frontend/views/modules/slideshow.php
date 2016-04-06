@@ -1,27 +1,41 @@
 <div id="slideshow-container">
-    
+    <div id="slideshow-images">
+        <div class="wrap">
+    <?php
+    foreach ($data as $item) {
+        ?><figure>
+            <img src="<?= $item['img_src'] ?>" alt="<?= $item['caption'] ?>">
+            <figcaption><?= $item['img_alt'] ?></figcaption>
+        </figure><?php
+    }
+    ?>
+        </div>
+    </div>
+    <button class="bt-prev"><span>&lsaquo;</span></button>
+    <button class="bt-next"><span>&rsaquo;</span></button>
 </div>
 
 <style>
-.slideshow-container {
+#slideshow-container {
     width: 100%;
     white-space: nowrap;
 }
-.slideshow-images {
+#slideshow-images {
     width: 100%;
     overflow: hidden;
 }
-.slideshow-images figure {
+#slideshow-images figure {
     width: 100%;
     vertical-align: middle;
     display: inline-block;
 }
-.slideshow-images .wrap {
+#slideshow-images .wrap {
 }
-.slideshow-images img {
+#slideshow-images img {
+    vertical-align: middle;
     width: 100%;
 }
-.slideshow-images figcaption {
+#slideshow-images figcaption {
     position: absolute;
     width: fit-content;
     width: -ms-fit-content;
@@ -53,7 +67,8 @@
 }
 .bt-prev > span,
 .bt-next > span {
-    font-size: 1.6em;
+    font-family: Consolas, "Lucida Console", "Courier New";
+    font-size: 2.5em;
     color: #fff;
     text-shadow: 0 0 1px #000;
     -ms-text-shadow: 0 0 1px #000;
@@ -71,30 +86,18 @@
     right: 0;
 }
 </style>
+
 <script>
 /* SLIDESHOW: BEGIN */
 // CONFIG
 // opts = {"auto_run":true,"time_slide":300,"time_out":3000,"pause_on_hover":true}
 var opts = <?= json_encode($options) ?>;
-// items = { ... {"caption":"Hello!!","link":"//google.com","img_src":"//image.png","img_alt":"Say hello"} ... }
-var items = <?= json_encode($data) ?>
-// ELEMENT
+// PARAMS
 var g = document.getElementById("slideshow-container");
-g.classList.add("slideshow-container");
-var a = document.createElement("div");
-var c = document.createElement("div");
-a.classList.add("slideshow-images");
-c.classList.add("wrap");
-g.appendChild(a);
-a.appendChild(c);
-var bt_prev = document.createElement("button");
-var bt_next = document.createElement("button");
-bt_prev.classList.add("bt-prev");
-bt_next.classList.add("bt-next");
-bt_prev.innerHTML = "<span>&laquo;</span>";
-bt_next.innerHTML = "<span>&raquo;</span>";
-g.appendChild(bt_prev);
-g.appendChild(bt_next);
+var a = document.getElementById("slideshow-images");
+var c = a.children[0];
+var bt_prev = g.getElementsByClassName("bt-prev")[0];
+var bt_next = g.getElementsByClassName("bt-next")[0];
 var w, x; // w = width of figure; x = key of current figure element of c
 // RUN
 run();
@@ -103,26 +106,12 @@ window.addEventListener("resize", function(){
 });
 
 // FUNCTION
-function createImages() {
-    for (var i = 0; i < items.length; i++) {
-        var fig = document.createElement("figure");
-        var img = document.createElement("img");
-        img.setAttribute("src", items[i].img_src);
-        img.setAttribute("alt", items[i].img_alt);
-        var capt = document.createElement("figcaption");
-        capt.innerHTML = items[i].caption;
-        fig.appendChild(img);
-        fig.appendChild(capt);
-        c.appendChild(fig);
-    }
-}
 function setParams() {
     w = window.getComputedStyle(a, null).getPropertyValue("width");
     x = 0;
     c.style.transition = "margin " + String(0.001 * parseInt(opts.time_slide)) + "s ease";
 }
 function run() {
-    createImages();
     setParams();
     bt_next.addEventListener("click", function() {
         next();
