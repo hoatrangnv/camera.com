@@ -4,8 +4,14 @@
     <?php
     foreach ($data as $item) {
         ?><figure>
-            <img src="<?= $item['img_src'] ?>" alt="<?= $item['caption'] ?>">
-            <figcaption><?= $item['img_alt'] ?></figcaption>
+            <img src="<?= $item['img_src'] ?>" alt="<?= $item['img_alt'] ?>">
+            <?php
+            if ($item['caption'] !== null) {
+            ?>
+            <figcaption><?= $item['caption'] ?></figcaption>
+            <?php
+            }
+            ?>
         </figure><?php
     }
     ?>
