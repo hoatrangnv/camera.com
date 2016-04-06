@@ -60,7 +60,7 @@
     height: 100%;
     width: 12%;
     min-width: 1.5em;
-    max-width: 5em;
+    max-width: 6em;
     background: transparent;
     border: none;
     outline: none;
