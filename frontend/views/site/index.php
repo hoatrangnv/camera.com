@@ -17,7 +17,7 @@ foreach (SlideshowItem::find()->where(['is_active' => 1])->all() as $item) {
     'options' => [
         'time_slide' => 300,
         'time_out' => 3000,
-        'auto_run' => false,
+        'auto_run' => true,
         'pause_on_hover' => true
     ]
 ]) ?>
