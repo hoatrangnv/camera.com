@@ -11,8 +11,8 @@
     ?>
         </div>
     </div>
-    <button class="bt-prev"><span>&lsaquo;</span></button>
-    <button class="bt-next"><span>&rsaquo;</span></button>
+    <button class="bt-prev"><span></span></button>
+    <button class="bt-next"><span></span></button>
 </div>
 
 <style>
@@ -64,26 +64,37 @@
     background: transparent;
     border: none;
     outline: none;
-}
-.bt-prev > span,
-.bt-next > span {
-    font-family: "Lucida Console", "Segoe Ui";
-    font-size: 2.5em;
-    color: #fff;
-    text-shadow: 0 0 1px #000;
-    -ms-text-shadow: 0 0 1px #000;
-    -moz-text-shadow: 0 0 1px #000;
-    -webkit-text-shadow: 0 0 1px #000;
+    opacity: 0.6;
 }
 .bt-prev:hover,
 .bt-next:hover {
-    background: rgba(100, 100, 100, 0.4);
+    opacity: 1;
 }
 .bt-prev {
     left: 0;
 }
 .bt-next {
     right: 0;
+}
+.bt-prev > span,
+.bt-next > span {
+    display: block;
+    margin: 0 auto;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAAtCAQAAACgnzswAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfgAxIEDy47Z+06AAADW0lEQVRYw73Yz28TRxTA8a9nNsZyHNcYbGyCopaoAqUcClzoIShNpXLowWkvKJeqhyoEcaMHzvwBSO0fUEBtJQ4cInFAtIeKplRIKYkITVF/pBZxnMTaWCgY18iu2enBuzS08e6Od9Un7WGeLH80s5p9byaCdwhA8CY52lRYwsKy84Ij5DCocB8L7LxLRHxhCcbJ2uMK39DCQhDlXXJ21uRb6t6g9MQE/YyTnRy88fH00bXSLxH6eYQiwihDE9mZDz8ZNVeXLLKs0QaUj/XqihkkmWBq8uKzp0op9WRz1zRTRIEoU7umn2wqpdSzp5MXmWKCJAbCa6ncZhbvzOzy+VgCILn3cBxsjsPx5F6AWOLy+clBsowTR7j9p9DB4OHCYh2TBtDAXKw/XOjk/YJSD3vr86bFT5goIvRx4KvFQj6TBzCi7x0v/rxkkaXc/R1KPazW5jfmUSgiVOlv7tYDpSa2zPf2vlPAKgPNlA4oNbE7PH+xtxRQJqEDSk2s/dJGVig9UAbAegBlIEwblAExTVAGxrRAGQKmAcpQMN+gBCJOiQmA+QFbKInoFM/AmDe4xl8SydvkQ8G8wBRFyQhvjKWvXwgFcwF/uPeoj6YgB58WHKy+depKIAzAos0dlmvtU1fqW51ULPHZ+0BWkIYDrzq/rJTLLSrM9Qhtjzkq5Val7AwHh4C0oAqlopPctz9jkONECNwJchlj335nWCoCVYEJZ2acSQ+k757LGBzkpFeT4xICg5MczBh3zw2kO6n61pkZwJQ8Zs96bPFB4Vg0BpDOfPDatfnGKyRZRfXQxm3Dhkcc7PSl7x5TYk4CG+z5XYQEdsFumqwzS0uiaLNBOhTQHfsTq/MRa4UCumN17G+mCgX0xiynAAUHfWH/lNdgoE9se/PQO+gbe7k16g3UwP7d+OmDWth/21o9UBPbqWn3D2pjOx9J3MEEJUAhEIwyrIN1O3C5gSn6WbHP5q/rYd2Pk13Bq/PN3TzgOX28kzR+1MLcDssWUGeW9Zvm6UtOPRweKeSBVOcp5PUw96uAHcBa9dYGUOs8tzZqVR3M615l25Leuz8sV4offfFrg2X+QGGRbKRmFw7J8srZL7/e9IP5vTWKM4bTdZS4/eLWaIwhO7vObRpe2P8efwMddU5dQuirCQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNi0wMy0xOFQwNDoxNTo0Ni0wNDowMAbU5nIAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTYtMDMtMThUMDQ6MTU6NDYtMDQ6MDB3iV7OAAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 45px;
+    width: 27px;
+    -webkit-transform: scale(0.6, 0.6);
+    -moz-transform: scale(0.6, 0.6);
+    -ms-transform: scale(0.6, 0.6);
+    transform: scale(0.6, 0.6);
+}
+.bt-prev > span {
+    background-position: 0 0;
+}
+.bt-next > span {
+    background-position: -28px 0;
 }
 </style>
 
