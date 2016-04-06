@@ -58,7 +58,7 @@
     top: 0;
     bottom: 0;
     height: 100%;
-    width: 10%;
+    width: 12%;
     min-width: 1.5em;
     max-width: 5em;
     background: transparent;
