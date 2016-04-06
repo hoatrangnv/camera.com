@@ -85,10 +85,19 @@
     background-size: auto;
     height: 45px;
     width: 27px;
-    -webkit-transform: scale(0.6, 0.6);
-    -moz-transform: scale(0.6, 0.6);
-    -ms-transform: scale(0.6, 0.6);
-    transform: scale(0.6, 0.6);
+    -webkit-transform: scale(0.7, 0.7);
+    -moz-transform: scale(0.7, 0.7);
+    -ms-transform: scale(0.7, 0.7);
+    transform: scale(0.7, 0.7);
+}
+@media screen and (max-width: 640px) {
+.bt-prev > span,
+.bt-next > span {
+    -webkit-transform: scale(0.5, 0.5);
+    -moz-transform: scale(0.5, 0.5);
+    -ms-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
+}
 }
 .bt-prev > span {
     background-position: 0 0;
