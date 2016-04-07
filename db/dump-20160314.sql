@@ -1,5 +1,7 @@
-CREATE DATABASE  IF NOT EXISTS `camera` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
-USE `camera`;
+-- CREATE DATABASE  IF NOT EXISTS `camera` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+-- USE `camera`;
+CREATE DATABASE  IF NOT EXISTS `cameraquan_qs` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
+USE `cameraquan_qs`;
 -- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: tdhome_vn

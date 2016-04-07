@@ -51,7 +51,6 @@ use yii\web\View;
 <!-- jQuery UI 1.11.4 -->
 <!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>-->
 <script src="<?= Yii::$app->params['backend_url'] ?>/picture-cut/src/jquery.picture.cut.js"></script>
-<script src="<?= Yii::$app->params['backend_url'] ?>/snow/snow.js"></script>
 <script>
 <?php $this->beginBlock('JS_END') ?>
     
