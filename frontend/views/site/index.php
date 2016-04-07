@@ -1,17 +1,3 @@
-<?php
-
-use frontend\models\Product;
-use frontend\models\SlideshowItem;
-$slideshow = [];
-foreach (SlideshowItem::find()->where(['is_active' => 1])->all() as $item) {
-    $slideshow[] = [
-        'caption' => $item->caption,
-        'link' => $item->link,
-        'img_src' => $item->getImage(),
-        'img_alt' => $item->caption,
-    ];
-}
-?>
 <?= $this->render('//modules/slideshow', [
     'data' => $slideshow,
     'options' => [
@@ -21,22 +7,7 @@ foreach (SlideshowItem::find()->where(['is_active' => 1])->all() as $item) {
         'pause_on_hover' => true
     ]
 ]) ?>
-<section class="list-view">
-    <h2>Sản phẩm bán chạy</h2>
-    <div class="list">
-        <?php
-        foreach (Product::getProducts() as $item) {
-        ?>
-        <a class="thumb" href="<?= $item->getLink() ?>" title="<?= $item->name ?>">
-            <div class="image">
-                <img src="<?= $item->getImage() ?>" title="<?= $item->name ?>" alt="<?= $item->name ?>">
-            </div>
-            <h3><?= $item->name ?></h3>
-            <p class="desc"><?= $item->description ?></p>
-            <div class="clr"></div>
-        </a>
-        <?php
-        }
-        ?>
-    </div>
-</section>
+<?= $this->render('//product/list-view', [
+    'title' => 'Sản phẩm bán chạy',
+    'products' => $best_seller_products,
+]) ?>

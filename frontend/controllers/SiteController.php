@@ -4,6 +4,8 @@ namespace frontend\controllers;
 use frontend\models\ContactForm;
 use frontend\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
+use frontend\models\Product;
+use frontend\models\ProductCategory;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\SlideshowItem;
@@ -74,22 +76,34 @@ class SiteController extends BaseController
     {
         $this->link_canonical = Yii::$app->params['frontend_url'];
         if ($this->is_mobile && !$this->is_tablet) {
-            $slideshow_item_image_ratio = Yii::$app->params['wph_ratios']['slideshow_item_image_mobile'];
-            $slideshow_item_image_suffix = SlideshowItem::$image_resizes['mobile'];
-        } else if ($this->is_tablet) {
-            $slideshow_item_image_ratio = Yii::$app->params['wph_ratios']['slideshow_item_image_tablet'];
-            $slideshow_item_image_suffix = SlideshowItem::$image_resizes['tablet'];
+//            $slideshow_image_ratio = Yii::$app->params['wph_ratios']['slideshow_item_image_mobile'];
+            $slideshow_image_suffix = SlideshowItem::$image_resizes['mobile'];
+//        } else if ($this->is_tablet) {
+//            $slideshow_image_ratio = Yii::$app->params['wph_ratios']['slideshow_item_image_tablet'];
+//            $slideshow_image_suffix = SlideshowItem::$image_resizes['tablet'];
         } else {
-            $slideshow_item_image_ratio = Yii::$app->params['wph_ratios']['slideshow_item_image_desktop'];
-            $slideshow_item_image_suffix = SlideshowItem::$image_resizes['desktop'];
+//            $slideshow_image_ratio = Yii::$app->params['wph_ratios']['slideshow_item_image_desktop'];
+            $slideshow_image_suffix = SlideshowItem::$image_resizes['desktop'];
         }
         
-        $slideshow_items = SlideshowItem::getList();
+        $slideshow = [];
+        foreach (SlideshowItem::find()->where(['is_active' => 1])->all() as $item) {
+            $slideshow[] = [
+                'caption' => $item->caption,
+                'link' => $item->link,
+                'img_src' => $item->getImage(),
+                'img_alt' => $item->caption,
+            ];
+        }
+        
+        $best_seller_products = Product::getProducts(['orderBy' => 'sold_quantity desc, published_at desc', 'limit' => 6]);
+        $hot_product_categories = ProductCategory::getProductCategories(['is_hot' => 1, 'orderBy' => 'position asc, id desc']);
         
         return $this->render('index', [
-            'slideshow_items' => $slideshow_items,
-            'slideshow_item_image_ratio' => $slideshow_item_image_ratio,
-            'slideshow_item_image_suffix' => $slideshow_item_image_suffix,
+            'slideshow' => $slideshow,
+            'slideshow_image_suffix' => $slideshow_image_suffix,
+            'best_seller_products' => $best_seller_products,
+            'hot_product_categories' => $hot_product_categories,
         ]);
     }
 

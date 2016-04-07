@@ -109,7 +109,7 @@ body {
     float: left;
     width: 240px;
     background: #fff;
-    padding: 1em 0.5em;
+    padding: 0.5em;
 }
 .side-menu ul {
     list-style: none;
@@ -157,13 +157,31 @@ body {
     float:right;
     width: calc(100% - 240px);
 }
+.price {
+    color: #e00;
+    font-weight: bold;
+    margin-top: 0.4em;
+}
+.o-price {
+    color: #aaa;
+    text-decoration: line-through;
+    font-size: 0.9em;
+    margin-top: 0.4em;
+}
 .list-view {
     text-align: justify;
+    margin-top: 1em;
 }
 .list-view .title {
     text-align: left;
-    line-height: 34px;
+    font-size: 1.2em;
     padding: 0 1%;
+}
+.list-view .thumb .name {
+    margin-top: 0.5em;
+}
+.list-view .thumb .desc {
+    margin-top: 0.4em;
 }
 .list-view .thumb {
     padding: 0 1%;
@@ -174,6 +192,8 @@ body {
 .list-view .detail {
     width: 100%;
     float: left;
+    border-top: 1px dotted #ccc;
+    padding: 0.5em 0;
 }
 .list-view .thumb .img-wrap {
     transition: opacity 0.2s;
@@ -183,11 +203,19 @@ body {
 .list-view .detail .img-wrap {
     width: 20%;
     float: left;
+    padding-right: 1%;
+}
+.list-view .detail .name {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 0.4em;
+}
+.list-view .detail .desc {
 }
 .list-view .thumb:hover .img-wrap {
     opacity: 0.7;
 }
-.list-view .detail:hover .name {
+.list-view .detail .name a:hover {
     text-decoration: underline;
 }
 .list-view .thumb img {
@@ -196,9 +224,18 @@ body {
 .list-view .detail img {
     width: 100%;
 }
-.breadcrumbs li {
+.breadcrumbs {
+    margin-bottom: 1em;
+}
+.breadcrumbs > li {
     list-style: none;
     display: inline;
+}
+.breadcrumbs > li:last-of-type a {
+    color: #999;
+}
+.breadcrumbs > li:hover a {
+    text-decoration: underline;
 }
 .breadcrumbs > li:not(:first-child)::before {
     content: " » ";
@@ -215,6 +252,30 @@ body {
 }
 .col-12 {
     width: 100%;
+    float: left;
+}
+.pagination {
+    border-top: 1px solid #eee;
+    padding: 0.5em 0;
+}
+.pagination > ul {
+    float: right;
+}
+.pagination > ul > li {
+    list-style: none;
+    float: left;
+}
+.pagination > ul > li > a {
+    display: block;
+    padding: 0.2em 0.3em;
+    margin: 0 0.1em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.pagination > ul > li.active > a {
+    background: #eee;
+}
+.pagination > .counter {
     float: left;
 }
 

@@ -3,7 +3,7 @@
 namespace common\utils;
 
 class Pagination{
-    public static function data
+    public static function getResult
     (
         $params=[
             'current'=>1,

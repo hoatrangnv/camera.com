@@ -41,11 +41,11 @@ class SlideshowItem extends \common\models\SlideshowItem
         }
         return $this->_image;
     }
-    
-    public function getList()
-    {
-        return SlideshowItem::find()->where(['is_active' => 1])->orderBy('position asc')->all();
-    }
+//    
+//    public function getList()
+//    {
+//        return SlideshowItem::find()->where(['is_active' => 1])->orderBy('position asc')->all();
+//    }
     
     /**
      * @inheritdoc

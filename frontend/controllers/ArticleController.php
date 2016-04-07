@@ -9,7 +9,7 @@ use yii\helpers\Url;
 
 class ArticleController extends BaseController
 {
-    const ITEMS_PER_PAGE = 10;
+    const ITEMS_PER_PAGE = 1;
     
     public function actionIndex()
     {

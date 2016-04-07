@@ -2,13 +2,13 @@
 
 use common\utils\Pagination;
 
-$pageOpt = Pagination::data(
+$pageOpt = Pagination::getResult(
     ['current' => $pagination['current'], 'total' => $pagination['total']],
     ['left' => 1, 'right' => 2]
 );
 ?>
-<div class="clearfix paging">
-    <ul class="pagination fr">
+<div class="pagination col-12">
+    <ul>
         <?php
         if (count($pageOpt['arr']) > 1) {
             if ($pageOpt['btn']['first']) {
@@ -29,7 +29,7 @@ $pageOpt = Pagination::data(
         }
         ?>
     </ul>
-    <div class="result-count fl">
-        Hiển thị <?= $pagination['firstItemOnPage'] < $pagination['lastItemOnPage'] ? $pagination['firstItemOnPage'] . '&ndash;' . $pagination['lastItemOnPage'] : ( $pagination['firstItemOnPage'] == $pagination['lastItemOnPage'] ? $pagination['firstItemOnPage'] : 0 ) ?> / <?= $pagination['totalItems'] ?> bài viết
+    <div class="counter">
+        Hiển thị <?= $pagination['firstItemOnPage'] < $pagination['lastItemOnPage'] ? $pagination['firstItemOnPage'] . '&ndash;' . $pagination['lastItemOnPage'] : ( $pagination['firstItemOnPage'] == $pagination['lastItemOnPage'] ? $pagination['firstItemOnPage'] : 0 ) ?> / <?= $pagination['totalItems'] ?> kết quả
     </div>
 </div>
