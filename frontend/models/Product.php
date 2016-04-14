@@ -165,15 +165,15 @@ class Product extends \common\models\Product
     public function getLink() {
         if ($this->_link === null) {
             $_link = '';
-            if ($cate = $this->getProductCategory()) {
-                if ($parent_cate = $cate->getParent()) {
-                    $_link = Url::to(['product/index', 'parent_cate_slug' => $parent_cate->slug, 'cate_slug' => $cate->slug, 'slug' => $this->slug], true);
-                } else {
-                    $_link = Url::to(['product/index', 'cate_slug' => $cate->slug, 'slug' => $this->slug], true);
-                }
-            } else {
+//            if ($cate = $this->getProductCategory()) {
+//                if ($parent_cate = $cate->getParent()) {
+//                    $_link = Url::to(['product/index', 'parent_cate_slug' => $parent_cate->slug, 'cate_slug' => $cate->slug, 'slug' => $this->slug], true);
+//                } else {
+//                    $_link = Url::to(['product/index', 'cate_slug' => $cate->slug, 'slug' => $this->slug], true);
+//                }
+//            } else {
                 $_link = Url::to(['product/index', 'slug' => $this->slug], true);
-            }
+//            }
             $this->_link = $_link;
         }
         return $this->_link;

@@ -1,4 +1,6 @@
-<?= $this->render('//modules/slideshow', [
+<?php
+
+echo $this->render('//modules/slideshow', [
     'data' => $slideshow,
     'options' => [
         'time_slide' => 300,
@@ -6,8 +8,16 @@
         'auto_run' => true,
         'pause_on_hover' => true
     ]
-]) ?>
-<?= $this->render('//product/list-view', [
-    'title' => 'Sản phẩm bán chạy',
+]);
+
+echo $this->render('//product/list-view', [
+    'title' => 'Sản phẩm b&#225;n chạy',
     'products' => $best_seller_products,
-]) ?>
+]);
+
+foreach ($hot_product_categories as $cate) {
+    echo $this->render('//product/list-view', [
+        'title' => $cate->name,
+        'products' => $cate->getProducts(['limit' => 6]),
+    ]);
+}

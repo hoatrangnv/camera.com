@@ -17,6 +17,7 @@ class ProductController extends BaseController
             if (!Redirect::compareUrl($this->link_canonical)) {
                 $this->redirect($this->link_canonical);
             }
+            $related_products = [];
             if ($cate = $product->getProductCategory()) {
                 $this->breadcrumbs[] = ['label' => $cate->name, 'url' => $cate->getLink()];            
                 $related_products = $cate->getProducts(['limit' => 3, 'orderBy' => 'rand()', 'id_not_equal' => $product->id]);
@@ -39,6 +40,12 @@ class ProductController extends BaseController
             $product->save();
             
             $images = [];
+            $images[] = [
+                'caption' => '',
+                'link' => '#',
+                'img_alt' => $product->name,
+                'img_src' => $product->getImage()
+            ];
             $product_images = ProductImage::find()->where(['product_id' => $product->id])->all();
             foreach ($product_images as $item) {
                 $images[] = [
@@ -52,7 +59,7 @@ class ProductController extends BaseController
             return $this->render('index', [
                 'product' => $product,
                 'images' => $images,
-                'related_products' => $related_products ? $related_products : array()
+                'related_products' => $related_products
             ]);
         } else {
             Redirect::go();

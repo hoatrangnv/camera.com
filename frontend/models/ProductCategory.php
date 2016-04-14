@@ -184,13 +184,26 @@ class ProductCategory extends \common\models\ProductCategory
     public $_children = 1;
     public function getChildren()
     {
-        if ($this->_children == 1) {
+        if ($this->_children === 1) {
             if (!$_children = ProductCategory::find()->where(['parent_id' => $this->id])->andWhere(['is_active' => 1])->orderBy('position asc')->all()) {
                 $_children = [];
             }
             $this->_children = $_children;
         }
         return $this->_children;
+    }
+    
+    public $_all_children = 1;
+    public function getAllChildren()
+    {
+        if ($this->_all_children === 1) {
+            $result = $this->getChildren();
+            foreach ($result as $item) {
+                $result = array_merge($result, $item->getAllChildren());
+            }
+            $this->_all_children = $result;
+        }
+        return $this->_all_children;
     }
     
     public static function getProductCategories($params = ['is_parent' => false]) {
@@ -230,7 +243,7 @@ class ProductCategory extends \common\models\ProductCategory
 
     public function getProducts($params = [])
     {
-        $cate_ids = ArrayHelper::merge([$this->id], ArrayHelper::getColumn($this->getChildren(), 'id'));
+        $cate_ids = ArrayHelper::merge([$this->id], ArrayHelper::getColumn($this->getAllChildren(), 'id'));
         $id_in = ArrayHelper::getColumn(ProductToProductCategory::find()->where(['in', 'product_category_id', $cate_ids])->all(), 'product_id');
         $result = Product::getProducts([
             'id_in' => $id_in,

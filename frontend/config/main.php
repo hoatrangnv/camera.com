@@ -49,8 +49,9 @@ return [
                 ['pattern' => 'thong-tin/<slug>.html', 'route' => 'info/index'],
                 // Tin tức
                 ['pattern' => 'article/counter', 'route' => 'article/counter'],
-                ['pattern' => 'tin-tuc/<parent_cate_slug>/<cate_slug>/<slug>.html', 'route' => 'article/index'],
-                ['pattern' => 'tin-tuc/<cate_slug>/<slug>.html', 'route' => 'article/index'],
+//                ['pattern' => 'tin-tuc/<parent_cate_slug>/<cate_slug>/<slug>.html', 'route' => 'article/index'],
+//                ['pattern' => 'tin-tuc/<cate_slug>/<slug>.html', 'route' => 'article/index'],
+                ['pattern' => 'tin-tuc/<slug>.html', 'route' => 'article/index'],
                 ['pattern' => 'tin-tuc/', 'route' => 'article/view-all'],
                 ['pattern' => 'tin-tuc', 'route' => 'article/view-all'],
                 // Danh mục tin tức
@@ -60,8 +61,9 @@ return [
                 ['pattern' => 'tin-tuc/<slug>/', 'route' => 'article-category/index'],
                 // Sản phẩm
                 ['pattern' => 'product/counter', 'route' => 'product/counter'],
-                ['pattern' => '<parent_cate_slug>/<cate_slug>/<slug>.html', 'route' => 'product/index'],
-                ['pattern' => '<cate_slug>/<slug>.html', 'route' => 'product/index'],
+//                ['pattern' => '<parent_cate_slug>/<cate_slug>/<slug>.html', 'route' => 'product/index'],
+//                ['pattern' => '<cate_slug>/<slug>.html', 'route' => 'product/index'],
+                ['pattern' => 'san-pham/<slug>.html', 'route' => 'product/index'],
                 // Danh mục sản phẩm
                 ['pattern' => '<parent_slug>/<slug>', 'route' => 'product-category/index'],
                 ['pattern' => '<parent_slug>/<slug>/', 'route' => 'product-category/index'],

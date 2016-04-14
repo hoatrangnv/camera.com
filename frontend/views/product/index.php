@@ -1,5 +1,5 @@
 <?= $this->render('//modules/breadcrumbs') ?>
-<div class="col-6">
+<div class="col-7">
 <?= $this->render('//modules/slideshow', [
     'data' => $images,
     'options' => [
@@ -10,9 +10,8 @@
     ]
 ]) ?>
 </div>
-<div class="col-6">
+<div class="col-5">
     <h1><?= $product->name ?></h1>
-    <p class="price"><?= $product->currency('price') ?></p>
     <?php
     if ($product->original_price > $product->price) {
     ?>
@@ -20,10 +19,11 @@
     <?php
     }
     ?>
-    <p><?= $product->description ?></p>
+    <p class="price"><?= $product->currency('price') ?></p>
+<!--    <p><?= $product->description ?></p>-->
 </div>
 <div class="col-12">
-    <h2>Mô tả</h2>
+    <h2>M&#244; tả</h2>
     <?= $product->long_description ?>
 </div>
 <div class="col-12">
