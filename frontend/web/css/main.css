@@ -13,6 +13,9 @@
     box-sizing: border-box;
     position: relative;
 }
+.paragraph * {
+    font-size: inherit;
+}
 body {
     color: #222;
     overflow-y: scroll;
@@ -312,9 +315,6 @@ body {
 }
 .pagination > .counter {
     float: left;
-}
-.paragraph * {
-    font-size: inherit;
 }
 
 @media screen and (max-width: 768px) {

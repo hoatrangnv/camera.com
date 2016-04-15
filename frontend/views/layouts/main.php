@@ -44,6 +44,33 @@ AppAsset::register($this);
             <div class="clr"></div>
         </footer>
     </div>
+    <script>
+    <?php $this->beginBlock('JS_END') ?>
+    var g;
+    var gs = document.getElementsByClassName("paragraph");
+    for (var k = 0; k < gs.length; k++) {
+        g = gs[k];
+        if (typeof(g) !== "undefined" && g !== null) {
+            var g_w = parseInt(window.getComputedStyle(g, null).getPropertyValue("width"));
+            var els = g.querySelectorAll("table, img, iframe");
+            for (var i = 0; i < els.length; i++) {
+                setStyle(els[i]);
+            }
+            function setStyle(el) {
+                el_w = parseInt(window.getComputedStyle(el, null).getPropertyValue("width"));
+                if (el_w > g_w) {
+                    el.style.paddingRight = "0px";
+                    el.style.paddingLeft = "0px";
+                    el.style.boxSizing = "border-box";
+                    el.style.height = "auto";
+                    el.style.width = g_w + "px";
+                }
+            }
+        }
+    }
+    <?php $this->endBlock(); ?>
+    </script>
+    <?php $this->registerJs($this->blocks['JS_END'], $this::POS_END, 'JS_END'); ?>
     <?php $this->endBody() ?>
 </body>
 </html>
