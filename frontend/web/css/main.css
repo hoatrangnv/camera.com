@@ -313,6 +313,9 @@ body {
 .pagination > .counter {
     float: left;
 }
+.paragraph * {
+    font-size: inherit;
+}
 
 @media screen and (max-width: 768px) {
     .content {

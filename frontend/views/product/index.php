@@ -22,11 +22,11 @@
     <p class="price"><?= $product->currency('price') ?></p>
 <!--    <p><?= $product->description ?></p>-->
 </div>
-<div class="col-12">
+<div class="col-12 paragraph">
     <h2>M&#244; tả</h2>
     <?= $product->long_description ?>
 </div>
-<div class="col-12">
+<div class="col-12 paragraph">
     <h2>Chi tiết sản phẩm</h2>
     <?= $product->details ?>
 </div>
