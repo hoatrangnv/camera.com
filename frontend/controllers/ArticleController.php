@@ -9,7 +9,7 @@ use yii\helpers\Url;
 
 class ArticleController extends BaseController
 {
-    const ITEMS_PER_PAGE = 1;
+    const ITEMS_PER_PAGE = 10;
     
     public function actionIndex()
     {
@@ -20,7 +20,7 @@ class ArticleController extends BaseController
                 $this->redirect($this->link_canonical);
             }
             if ($cate = $article->getArticleCategory()) {
-                $this->breadcrumbs[] = ['label' => $cate->name, 'url' => $cate->getLink()];            
+//                $this->breadcrumbs[] = ['label' => $cate->name, 'url' => $cate->getLink()];            
                 $related_articles = $cate->getArticles(['limit' => 3, 'orderBy' => 'rand()', 'id_not_equal' => $article->id]);
             }
             $this->breadcrumbs[] = ['label' => $article->name, 'url' => $this->link_canonical];            

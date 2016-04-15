@@ -154,11 +154,11 @@ class ProductCategory extends \common\models\ProductCategory
     {
         if ($this->_link === '') {
             $_link = '';
-            if ($parent = $this->getParent()) {
-                $_link = Url::to(['product-category/index','parent_slug' => $parent->slug ,'slug' => $this->slug], true);
-            } else {
+//            if ($parent = $this->getParent()) {
+//                $_link = Url::to(['product-category/index','parent_slug' => $parent->slug ,'slug' => $this->slug], true);
+//            } else {
                 $_link = Url::to(['product-category/index', 'slug' => $this->slug], true);
-            }
+//            }
             $this->_link = $_link;
         }
         return $this->_link;
