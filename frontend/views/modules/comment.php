@@ -14,8 +14,7 @@ FB.init({
     version    : 'v2.5' // or v2.0, v2.1, v2.2, v2.3
 });
 <?php
-if (isset($model)) {
-    $counter_url = $model->getActionCounterUrl();
+if (isset($id) && isset($counter_url)) {
     $fql  = "SELECT url, normalized_url, share_count, like_count, comment_count, total_count, commentsbox_count, comments_fbid, click_count ";
     $fql .= "FROM link_stat WHERE url = '{$link}'";
     $fql = urlencode($fql);
@@ -44,11 +43,11 @@ function updateCommentCount(id, url){
 }
 
 FB.Event.subscribe('comment.create', function(response) {
-    updateCommentCount(<?= $model->id ?>, '<?= $counter_url ?>');
+    updateCommentCount(<?= $id ?>, '<?= $counter_url ?>');
 });
 
 FB.Event.subscribe('comment.remove', function(response){
-    updateCommentCount(<?= $model->id ?>, '<?= $counter_url ?>');
+    updateCommentCount(<?= $id ?>, '<?= $counter_url ?>');
 });   
 
 };
