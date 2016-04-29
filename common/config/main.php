@@ -2,7 +2,7 @@
 return [
     'language' => 'vi-VN',
     'charset' => 'UTF-8',
-    'name' => 'cameraquansat.me',
+    'name' => 'Cameraquansat.me',
     'version' => '1.0',
     
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
