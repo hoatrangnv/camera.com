@@ -25,7 +25,7 @@ AppAsset::register($this);
     <div class="global-container">
         <header class="header">
             <a class="main-logo" href="<?= Url::home() ?>">
-                <?= Yii::$app->name ?>
+                CameraQuanSat<span style="color:#2a0">&bull;</span><span style="color:#000">me</span>
             </a>
             <?php require_once 'top_menu.php'; ?>
             <div class="clr"></div>
@@ -39,7 +39,7 @@ AppAsset::register($this);
         </div>
         <footer class="footer">
             <p>
-                Copyright © <?= date('Y') ?> <strong><?= Yii::$app->name ?></strong>
+                Copyright &copy; <?= date('Y') ?> <strong><?= Yii::$app->name ?></strong>
             </p>
             <div class="clr"></div>
         </footer>
