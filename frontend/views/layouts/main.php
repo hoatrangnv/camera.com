@@ -24,8 +24,8 @@ AppAsset::register($this);
     <?php $this->beginBody() ?>
     <div class="global-container">
         <header class="header">
-            <a class="main-logo" href="<?= Url::home() ?>">
-                CameraQuanSat<span style="color:#2a0">&bull;</span><span style="color:#000">me</span>
+            <a class="main-logo" href="<?= Url::home() ?>" title="<?= Yii::$app->name ?>">
+                Camera<span style="color:#876;font-size:inherit">quansat</span><span style="color:#e00">&bull;</span><span style="color:#2a0">me</span>
             </a>
             <?php require_once 'top_menu.php'; ?>
             <div class="clr"></div>
