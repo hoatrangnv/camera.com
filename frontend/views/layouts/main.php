@@ -22,7 +22,7 @@ AppAsset::register($this);
 </head>
 <body>
     <?php $this->beginBody() ?>
-    <div class="global-container" id="global-container">
+    <div class="global-container">
         <header class="header">
             <a class="main-logo" href="<?= Url::home() ?>">
                 <?= Yii::$app->name ?>

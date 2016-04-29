@@ -16,8 +16,10 @@
 .paragraph * {
     font-size: inherit;
 }
+html {
+}
 body {
-    color: #222;
+    color: #000;
     overflow-y: scroll;
     width: 100%;
     height: fit-content;
@@ -29,6 +31,8 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .clr {
     clear: both;
@@ -37,7 +41,7 @@ body {
     font-size: 1px;
 }
 .global-container {
-    max-width: 1010px;
+    max-width: 1150px;
     width: 100%;
     margin: 0 auto;
 }
@@ -46,12 +50,8 @@ body {
     width: 100%;
 }
 .main-logo {
-    display: block;
+    display: table;
     padding: 0 1%;
-    width: fit-content;
-    width: -ms-fit-content;
-    width: -moz-fit-content;
-    width: -webkit-fit-content;
     height: 54px;
     line-height: 54px;
     font-size: 1.4em;
@@ -62,6 +62,10 @@ body {
 /*Top menu*/
 .top-menu {
     background: #4ac;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
 }
 .top-menu ul {
     list-style: none;
@@ -113,12 +117,17 @@ body {
     float: left;
     width: 240px;
     background: #fff;
-    padding: 0.5em;
 }
 .side-menu ul {
     list-style: none;
+    margin: 0 0.5em;
 }
-.side-menu li {
+.side-menu ul li {
+    border: 0 solid #ccc;
+    border-bottom-width: 1px;
+}
+.side-menu ul li:last-child {
+    border-bottom: none;
 }
 .side-menu a {
     display: block;
@@ -144,8 +153,10 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 .side-menu > ul > li > ul > li > a {
-    padding-left: 0.5em;
-    font-size: 0.98em;
+    font-size: 0.97em;
+}
+.side-menu > ul > li > ul > li {
+    border-color: #ddd;
 }
 .side-menu > ul > li > ul {
     display: none;
@@ -317,7 +328,13 @@ body {
     float: left;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 1000px) {
+    .list-view .thumb {
+        width: 24%;
+    }
+}
+
+@media screen and (max-width: 740px) {
     .content {
         width: 100%;
     }
