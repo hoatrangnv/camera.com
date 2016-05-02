@@ -19,7 +19,6 @@ class ProductController extends BaseController
             }
             $related_products = [];
             if ($cate = $product->getProductCategory()) {
-                $this->breadcrumbs[] = ['label' => $cate->name, 'url' => $cate->getLink()];            
                 $related_products = $cate->getProducts(['limit' => 3, 'orderBy' => 'rand()', 'id_not_equal' => $product->id]);
             }
             $this->breadcrumbs[] = ['label' => $product->name, 'url' => $this->link_canonical];            
