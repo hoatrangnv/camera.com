@@ -26,7 +26,7 @@ AppAsset::register($this);
     <h1 class="top-title"><?= $this->context->h1 ?></h1>
     <header class="header">
         <a class="main-logo" href="<?= Url::home() ?>" title="<?= Yii::$app->name ?>">
-            <b style="padding:0 0.5em"><span style="color:#ef9000;font-size:1.5em;font-family:tahoma">CameraQuanSat</span><i style="color:#17bcf1;font-size:1.35em;font-family:arial">.me</i></b>
+            <!--<b style="padding:0 0.5em"><span style="color:#ef9000;font-size:1.5em;font-family:tahoma">CameraQuanSat</span><i style="color:#17bcf1;font-size:1.35em;font-family:arial">.me</i></b>-->
         </a>
         <?php require_once 'top_menu.php'; ?>
         <div class="clr"></div>

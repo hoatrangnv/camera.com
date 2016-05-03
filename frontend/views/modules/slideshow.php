@@ -47,7 +47,7 @@
 #slideshow-images figure {
     position: relative;
     width: 100%;
-    vertical-align: middle;
+    vertical-align: top;
     display: inline-block;
 }
 #slideshow-images .wrap {
