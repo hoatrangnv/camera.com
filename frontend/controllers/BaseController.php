@@ -39,6 +39,7 @@ class BaseController extends Controller {
         $this->is_tablet = $mobile_detect->isTablet();
         $this->meta_image = Yii::$app->params['default_image'];
         $this->breadcrumbs[] = ['label' => 'Trang chủ', 'url' => Url::home()];
+        $this->h1 = 'Camera quan sát, camera văn phòng, đầu ghi chính hãng';
         
         if ($seoInfo = SeoInfo::getCurrent()) {
             $this->seo_exist = true;

@@ -18,28 +18,6 @@ use yii\widgets\ActiveForm;
     <div class="col-md-6">
 		<?= $form->field($model, 'image', ['template' => '{label}<div class="picturecut_image_container" ' . (!$model->isNewRecord ? 'style="background-image:url(' . $model->getImage() . ')"' : '') . '></div>{input}{error}{hint}'])->textInput(['maxlength' => true, 'readonly' => true]) ?>
 		<?php // echo $form->field($model, 'image_path')->textInput(['maxlength' => true, 'readonly' => true]) ?>
-		<?= $form->field($model, 'color_code')->widget(ColorInput::classname(), [
-            'options' => [
-                'readonly' => true,
-                'placeholder' => '- Chọn -'
-            ],
-//            'showDefaultPalette' => false,
-            'pluginOptions' => [
-//                'showInput' => true,
-//                'showInitial' => true,
-//                'showPalette' => true,
-//                'showPaletteOnly' => true,
-//                'showSelectionPalette' => true,
-//                'showAlpha' => false,
-//                'allowEmpty' => false,
-//                'preferredFormat' => 'name',
-//                'palette' => [
-//                    ["white", "black", "grey", "silver", "gold", "brown"],
-//                    ["red", "orange", "yellow", "indigo", "maroon", "pink"],
-//                    ["blue", "green", "violet", "cyan", "magenta", "purple"],
-//                ]                
-            ]
-        ]) ?>
 		<?= $form->field($model, 'product_id')->textInput(['readonly' => true, 'type' => 'hidden'])->label(false) ?>
     </div>
     

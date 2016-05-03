@@ -23,26 +23,25 @@ AppAsset::register($this);
 <body>
     <?php $this->beginBody() ?>
     <div class="global-container">
-        <header class="header">
-            <a class="main-logo" href="<?= Url::home() ?>" title="<?= Yii::$app->name ?>">
-                Camera<span style="color:#876;font-size:inherit">quansat</span><span style="color:#e00">&bull;</span><span style="color:#2a0">me</span>
-            </a>
-            <?php require_once 'top_menu.php'; ?>
-            <div class="clr"></div>
-        </header>
-        <div class="main-container">
-            <?php require_once 'side_menu.php'; ?>
-            <div class="content">
-                <?= $content ?>
-            </div>
-            <div class="clr"></div>
+    <h1 class="top-title"><?= $this->context->h1 ?></h1>
+    <header class="header">
+        <a class="main-logo" href="<?= Url::home() ?>" title="<?= Yii::$app->name ?>"></a>
+        <?php require_once 'top_menu.php'; ?>
+        <div class="clr"></div>
+    </header>
+    <div class="main-container">
+        <?php require_once 'side_menu.php'; ?>
+        <div class="content">
+            <?= $content ?>
         </div>
-        <footer class="footer">
-            <p>
-                Copyright &copy; <?= date('Y') ?> <strong><?= Yii::$app->name ?></strong>
-            </p>
-            <div class="clr"></div>
-        </footer>
+        <div class="clr"></div>
+    </div>
+    <footer class="footer">
+        <p>
+            Copyright &copy; <?= date('Y') ?> <strong><?= Yii::$app->name ?></strong>
+        </p>
+        <div class="clr"></div>
+    </footer>
     </div>
     <script>
     <?php $this->beginBlock('JS_END') ?>

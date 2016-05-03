@@ -52,7 +52,6 @@ use yii\widgets\ActiveForm;
             ],
         ]); ?>
         <?= $form->field($model, 'page_title')->textInput(['maxlength' => true]) ?>
-        <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
         <?= $form->field($model, 'h1')->textInput(['maxlength' => true]) ?>
         <?= $form->field($model, 'meta_title')->textInput(['maxlength' => true]) ?>
         <?= $form->field($model, 'meta_description')->textInput(['maxlength' => true]) ?>
@@ -96,6 +95,16 @@ use yii\widgets\ActiveForm;
                 'dateFormat' => 'yy-mm-dd',
                 'timeFormat' => 'HH:mm:ss',
                 'showSecond' => true,
+            ],
+        ]) ?>
+        <?= $form->field($model, 'description')->widget(CKEditor::className(), [
+            'preset' => 'basic',
+            'clientOptions' => [
+                'height' => 200,
+                'language' => 'vi',
+                'uiColor' => '#E4E4E4',
+                'image_previewText' => '&nbsp;',
+                'filebrowserUploadUrl' => Url::to(['file/ckeditor-upload-image'], true),
             ],
         ]) ?>
     </div>
