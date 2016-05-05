@@ -36,13 +36,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 //            'image_path',
             [
-                'attribute' => 'color_code',
-                'format' => 'raw',
-                'value' => function ($model) {
-                    return Html::tag('div', '&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;', ['style'=>"background:$model->color_code", 'class' => 'label']);
-                },
-            ],
-            [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{update} {delete}',
             ],

@@ -10,10 +10,10 @@ echo $this->render('//modules/slideshow', [
     ]
 ]);
 
-echo $this->render('//product/list-view', [
-    'title' => 'Sản phẩm b&#225;n chạy',
-    'products' => $best_seller_products,
-]);
+//echo $this->render('//product/list-view', [
+//    'title' => 'Sản phẩm b&#225;n chạy',
+//    'products' => $best_seller_products,
+//]);
 
 foreach ($hot_product_categories as $cate) {
     echo $this->render('//product/list-view', [

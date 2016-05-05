@@ -8,9 +8,10 @@ use yii\helpers\Url;
         <li id="toggle-bt">
             <a href="javascript:void(0)" title="Danh mục sản phẩm">
                 <button class="toggle-bt">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
                 </button>
                 <span class="toggle-bt-name">
                     Danh mục sản phẩm

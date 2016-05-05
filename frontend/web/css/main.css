@@ -6,29 +6,50 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     color: inherit;
+    font-family: inherit;
     text-decoration: none;
     box-sizing: border-box;
     position: relative;
 }
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
 .paragraph * {
     font-size: inherit;
+    line-height: 1.5em;
+}
+.paragraph h2 {
+    font-size: 1.6em;
+    margin-bottom: 0.5em;
+    color: #09b;
+}
+.paragraph h3 {
+    color: #ec8000;
+    font-size: 1.3em;
+    margin: 0.5em 0;
+    padding: 0.3em;
+    text-decoration: underline;
 }
 body {
-    color: #222;
-    overflow-y: scroll;
+    position: absolute;
+    margin: 0 auto;
     width: 100%;
+    left: 0;
+    right: 0;
+    color: #000;
+    overflow-x: hidden;
+    overflow-y: scroll;
     height: fit-content;
     height: -ms-fit-content;
     height: -moz-fit-content;
     height: -webkit-fit-content;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+}
+.global-container {
+    max-width: 1150px;
+    width: 100%;
+    margin: 0 auto;
 }
 .clr {
     clear: both;
@@ -36,32 +57,37 @@ body {
     line-height: 1px;
     font-size: 1px;
 }
-.global-container {
-    max-width: 1010px;
-    width: 100%;
-    margin: 0 auto;
+.top-title {
+    background: #f2f2f2;
+    padding: 0.5em calc(50vw - 50% + 0.5em);
+    margin: 0 calc(-50vw + 50%);
+    font-weight: normal;
+    line-height: 1.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 .header {
-    margin: 0 0 10px 0;
-    width: 100%;
 }
 .main-logo {
-    display: block;
-    padding: 0 1%;
-    width: fit-content;
-    width: -ms-fit-content;
-    width: -moz-fit-content;
-    width: -webkit-fit-content;
-    height: 54px;
+    display: table;
+    height: 55px;
+    width: 217px;
     line-height: 54px;
-    font-size: 1.4em;
-    font-weight: bold;
-    color: #e88000;
+    /*background-image: url('images/logo.png');*/
+    background-image: url(data:image/png;base64,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);
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /*Top menu*/
 .top-menu {
-    background: #4ac;
+    /*background: #4ac;*/
+    background: #229bc9;
+    border-radius: 5px 5px 0 0;
 }
 .top-menu ul {
     list-style: none;
@@ -71,10 +97,11 @@ body {
 }
 .top-menu li:first-child a {
     padding: 0;
+    border-radius: 5px 0 0 0;
 }
 .top-menu a {
     display: block;
-    line-height: 34px;
+    line-height: 40px;
     font-weight: bold;
     color: #fff;
     padding: 0 1em;
@@ -86,25 +113,20 @@ body {
     box-sizing: content-box;
     display: block;
     float: left;
-    padding: 0 1em; 
-    width: 18px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     border: none;
     background: transparent;
     cursor: inherit;
+    padding: 0 0.5em;
+    outline: none;
 }
 .toggle-bt-name {
     padding: 0 1em 0 0;
 }
-.toggle-bt .icon-bar {
-    display: block;
-    width: 100%;
-    height: 7%;
-    margin-top: 20%;
-    background: #fff;
-}
-.toggle-bt .icon-bar:first-child {
-    margin-top: 0;
+.toggle-bt svg {
+    width: 75%;
+    height: 75%;
 }
 
 
@@ -113,17 +135,22 @@ body {
     float: left;
     width: 240px;
     background: #fff;
-    padding: 0.5em;
 }
 .side-menu ul {
     list-style: none;
+    margin: 0 0.5em;
 }
-.side-menu li {
+.side-menu ul li {
+    border: 0 solid #ccc;
+    border-bottom-width: 1px;
+}
+.side-menu ul li:last-child {
+    border-bottom: none;
 }
 .side-menu a {
     display: block;
     width: 100%;
-    line-height: 34px;
+    line-height: 40px;
 }
 .side-menu .active > a {
     font-weight: bold;
@@ -144,8 +171,10 @@ body {
     background: rgba(255, 255, 255, 0.2);
 }
 .side-menu > ul > li > ul > li > a {
-    padding-left: 0.5em;
-    font-size: 0.98em;
+    font-size: 0.97em;
+}
+.side-menu > ul > li > ul > li {
+    border-color: #ddd;
 }
 .side-menu > ul > li > ul {
     display: none;
@@ -162,6 +191,7 @@ body {
     color: #e00;
     font-weight: bold;
     margin-top: 0.4em;
+    font-size: 1.15em;
 }
 .o-price {
     color: #aaa;
@@ -175,8 +205,12 @@ body {
 }
 .list-view .title {
     text-align: left;
-    font-size: 1.2em;
-    padding: 0 1%;
+    font-size: 1.35em;
+    padding: 0.3em;
+    margin: 0.5em 0;
+    font-weight: bold;
+    color: #ec8000;
+    text-decoration: underline;
 }
 .list-view .thumb .name {
     margin-top: 0.5em;
@@ -194,7 +228,7 @@ body {
     width: 100%;
     float: left;
     border-top: 1px dotted #ccc;
-    padding: 0.5em 0;
+    padding: 0.5em;
 }
 .list-view .thumb .img-wrap {
     transition: opacity 0.2s;
@@ -226,7 +260,9 @@ body {
     width: 100%;
 }
 .breadcrumbs {
-    margin-bottom: 1em;
+    padding: 0.5em;
+    background: #f2f2f2;
+    font-style: italic;
 }
 .breadcrumbs > li {
     list-style: none;
@@ -238,14 +274,16 @@ body {
 .breadcrumbs > li:hover a {
     text-decoration: underline;
 }
-.breadcrumbs > li:not(:first-of-type)::before {
+.breadcrumbs > li:not(:first-child)::before {
     content: " > ";
 }
 .main-container {
     min-height: calc(40vw);
 }
 .footer {
-    padding: 1em 0.2em;
+    background: #f2f2f2;
+    padding: 1em calc(50vw - 50% + 0.5em);
+    margin: 0 calc(-50vw + 50%);
 }
 .row:after {
     content: "";
@@ -254,7 +292,7 @@ body {
 }
 [class*="col-"] {
     float: left;
-    padding: 0.1em;
+    padding: 0.5em;
 }
 .col-1 {
     width: 8.33%;
@@ -317,7 +355,13 @@ body {
     float: left;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 1000px) {
+    .list-view .thumb {
+        width: 24%;
+    }
+}
+
+@media screen and (max-width: 740px) {
     .content {
         width: 100%;
     }

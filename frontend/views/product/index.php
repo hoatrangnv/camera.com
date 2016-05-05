@@ -10,23 +10,23 @@
     ]
 ]) ?>
 </div>
-<div class="col-5">
-    <h1><?= $product->name ?></h1>
+<div class="col-5 paragraph">
+    <h2><?= $product->name ?></h2>
+    <p><?= $product->description ?></p>
     <?php
     if ($product->original_price > $product->price) {
     ?>
-    <p class="o-price"><?= $product->currency('original_price') ?></p>
+    <p>Giá gốc: <span class="o-price"><?= $product->currency('original_price') ?></span></p>
     <?php
     }
     ?>
-    <p class="price"><?= $product->currency('price') ?></p>
-<!--    <p><?= $product->description ?></p>-->
+    <p>Giá bán: <span class="price"><?= $product->currency('price') ?></span></p>
 </div>
 <div class="col-12 paragraph">
-    <h2>M&#244; tả</h2>
+    <h3>Giới thiệu</h3>
     <?= $product->long_description ?>
 </div>
 <div class="col-12 paragraph">
-    <h2>Chi tiết sản phẩm</h2>
+    <h3>Thông số kỹ thuật</h3>
     <?= $product->details ?>
 </div>

@@ -6,7 +6,7 @@
         ?><figure>
             <img src="<?= $item['img_src'] ?>" alt="<?= $item['img_alt'] ?>">
             <?php
-            if ($item['caption'] !== null) {
+            if ($item['caption'] != '') {
             ?>
             <figcaption><?= $item['caption'] ?></figcaption>
             <?php
@@ -36,6 +36,7 @@
 
 <style>
 #slideshow-container {
+    position: relative;
     width: 100%;
     white-space: nowrap;
 }
@@ -44,8 +45,9 @@
     overflow: hidden;
 }
 #slideshow-images figure {
+    position: relative;
     width: 100%;
-    vertical-align: middle;
+    vertical-align: top;
     display: inline-block;
 }
 #slideshow-images .wrap {
