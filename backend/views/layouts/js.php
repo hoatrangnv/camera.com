@@ -195,24 +195,24 @@ use yii\web\View;
                 });
             });
         }
-        
-        if (ip.attr('name').indexOf('[description]') != -1
-        || ip.attr('name').indexOf('[meta_description]') != -1
-        ) {
-            ip.change(function(){
-                $("input:text, textarea").each(function(){
-                    var item = $(this);
-                    if (item.val() == "") { 
-                        if (item.attr('name').indexOf('[description]') != -1
-                        || item.attr('name').indexOf('[meta_description]') != -1
-                        ) {
-                            item.val(ip.val());
-                            textCount(item, false);
-                        }
-                    }
-                });
-            });
-        }
+//        
+//        if (ip.attr('name').indexOf('[description]') != -1
+//        || ip.attr('name').indexOf('[meta_description]') != -1
+//        ) {
+//            ip.change(function(){
+//                $("input:text, textarea").each(function(){
+//                    var item = $(this);
+//                    if (item.val() == "") { 
+//                        if (item.attr('name').indexOf('[description]') != -1
+//                        || item.attr('name').indexOf('[meta_description]') != -1
+//                        ) {
+//                            item.val(ip.val());
+//                            textCount(item, false);
+//                        }
+//                    }
+//                });
+//            });
+//        }
         
         if (ip.attr('name').indexOf('[meta_keywords]') != -1) {
             var meta_keywords_selected = false;
