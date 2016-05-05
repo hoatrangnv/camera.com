@@ -8,16 +8,18 @@
             <div class="img-wrap">
                 <img src="<?= $item->getImage() ?>" title="<?= $item->name ?>" alt="<?= $item->name ?>">
             </div>
-            <h3 class="name"><?= $item->name ?></h3>
-            <p class="desc"><?= $item->description ?></p>
-            <?php
-            if ($item->original_price > $item->price) {
-            ?>
-            <p class="o-price"><?= $item->currency('original_price') ?></p>
-            <?php
-            }
-            ?>
-            <p class="price"><?= $item->currency('price') ?></p>
+            <div class="desc">
+                <h3 class="name"><?= $item->name ?></h3>
+                <?= $item->description ?>
+                <?php
+                if ($item->original_price > $item->price) {
+                ?>
+                <p class="o-price"><?= $item->currency('original_price') ?></p>
+                <?php
+                }
+                ?>
+                <p class="price"><?= $item->currency('price') ?></p>
+            </div>
             <div class="clr"></div>
         </a>
         <?php

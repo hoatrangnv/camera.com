@@ -18,6 +18,6 @@ echo $this->render('//modules/slideshow', [
 foreach ($hot_product_categories as $cate) {
     echo $this->render('//product/list-view', [
         'title' => $cate->name,
-        'products' => $cate->getProducts(['limit' => 6]),
+        'products' => $cate->getProducts(['limit' => 8]),
     ]);
 }

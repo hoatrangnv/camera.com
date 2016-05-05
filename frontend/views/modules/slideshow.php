@@ -42,14 +42,25 @@
     overflow: hidden;
 }
 #slideshow-images {
-    width: 80%;
+    width: 86%;
     margin: 0 auto;
 }
 #slideshow-images figure {
     position: relative;
-    width: 100%;
+    width: 99%;
+    margin: 0 0.5%;
     vertical-align: top;
     display: inline-block;
+    opacity: 0.5;
+}
+#slideshow-images figure:first-child {
+    margin: 0 1% 0 0;
+}
+#slideshow-images figure:last-child {
+    margin: 0 0 0 1%;
+}
+#slideshow-images figure.active {
+    opacity: 1;
 }
 #slideshow-images .wrap {
 }
@@ -90,7 +101,7 @@
 .bt-prev:hover,
 .bt-next:hover {
     opacity: 1;
-    background: rgba(250, 250, 250, 0.3);
+    /*background: rgba(250, 250, 250, 0.3);*/
 }
 .bt-prev {
     left: 0;
@@ -111,6 +122,12 @@
     }
     #slideshow-images {
         width: 100%;
+    }
+    #slideshow-images figure,
+    #slideshow-images figure:first-child,
+    #slideshow-images figure:last-child {
+        width: 100%;
+        margin: 0;
     }
 }
 .bt-prev > span {
@@ -143,12 +160,13 @@ window.addEventListener("resize", function(){
 function setParams() {
     u = window.getComputedStyle(g, null).getPropertyValue("width");
     w = window.getComputedStyle(a, null).getPropertyValue("width");
-    df = (parseInt(u) - parseInt(w)) / parseInt(w);
+    df = 0.5 * (parseInt(u) - parseInt(w)) / parseInt(w);
     x = 0;
     c.style.transition = "margin " + String(0.001 * parseInt(opts.time_slide)) + "s ease";
 }
 function run() {
     setParams();
+    setActiveClass(0);
     setMargin(df);
     bt_next.addEventListener("click", function() {
         next();
@@ -177,6 +195,7 @@ function next() {
         x = 0;
     }
     
+    setActiveClass(x);
     if (x === 0) {
         setMargin(x + df);
     } else if (x === c.children.length - 1) {
@@ -192,6 +211,7 @@ function prev() {
         x = c.children.length - 1;
     }
     
+    setActiveClass(x);
     if (x === 0) {
         setMargin(x + df);
     } else if (x === c.children.length - 1) {
@@ -204,5 +224,15 @@ function setMargin(x) {
     c.style.marginLeft = "-" + String(x * parseInt(w)) + "px";
     c.style.marginRight = "+" + String(x * parseInt(w)) + "px";
 };
+function setActiveClass(x) {
+    for (var i = 0; i < c.children.length; i++) {
+        if (i === x) {
+            c.children[i].classList.add("active");
+        } else {
+            c.children[i].classList.remove("active");
+        }
+    }
+    
+}
 /* SLIDESHOW: END */
 </script>

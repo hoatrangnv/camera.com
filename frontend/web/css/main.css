@@ -136,7 +136,7 @@ body {
     width: 240px;
     padding: 0.5em 0;
     height: 100%;
-    background: #fff2e0;
+    background: #fff5dd;
 }
 .side-menu ul {
     list-style: none;
@@ -206,14 +206,14 @@ body {
 .price {
     color: #e00;
     font-weight: bold;
-    margin-top: 0.4em;
+    margin-top: 0.5em;
     font-size: 1.15em;
 }
 .o-price {
     color: #aaa;
     text-decoration: line-through;
     font-size: 0.9em;
-    margin-top: 0.4em;
+    margin-top: 0.5em;
 }
 .list-view {
     text-align: justify;
@@ -228,17 +228,26 @@ body {
     color: #ec8000;
     text-decoration: underline;
 }
-.list-view .thumb .name {
-    margin-top: 0.5em;
-}
 .list-view .thumb .desc {
-    margin-top: 0.4em;
+    padding: 0.5em 0;
+    background: #fff;
+    transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+}
+.list-view .thumb .name {
+    margin-bottom: 0.5em;
 }
 .list-view .thumb {
-    padding: 0 1%;
+    padding: 1%;
     width: 32%;
     display: inline-block;
     vertical-align: top;
+    transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
 }
 .list-view .detail {
     width: 100%;
@@ -247,9 +256,12 @@ body {
     padding: 0.5em;
 }
 .list-view .thumb .img-wrap {
-    transition: opacity 0.2s;
     width: 100%;
     overflow: hidden;
+    transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
 }
 .list-view .detail .img-wrap {
     width: 20%;
@@ -259,12 +271,25 @@ body {
 .list-view .detail .name {
     display: block;
     font-size: 1.1em;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.5em;
 }
 .list-view .detail .desc {
 }
+.list-view .thumb:hover {
+    box-shadow: 0 0 10px #ccc;
+    -webkit-box-shadow: 0 0 10px #ccc;
+    -moz-box-shadow: 0 0 10px #ccc;
+    -ms-box-shadow: 0 0 10px #ccc;
+}
 .list-view .thumb:hover .img-wrap {
     opacity: 0.7;
+    transform: scale(1.05, 1.05);
+    -webkit-transform: scale(1.05, 1.05);
+    -moz-transform: scale(1.05, 1.05);
+    -ms-transform: scale(1.05, 1.05);
+}
+.list-view .thumb:hover .desc {
+    margin: -0.5em 0 0.5em 0;
 }
 .list-view .detail .name a:hover {
     text-decoration: underline;

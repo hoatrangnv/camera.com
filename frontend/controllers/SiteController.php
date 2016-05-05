@@ -96,7 +96,7 @@ class SiteController extends BaseController
             ];
         }
         
-        $best_seller_products = Product::getProducts(['orderBy' => 'sold_quantity desc, published_at desc', 'limit' => 6]);
+        $best_seller_products = Product::getProducts(['orderBy' => 'sold_quantity desc, published_at desc', 'limit' => 8]);
         $hot_product_categories = ProductCategory::getProductCategories(['is_hot' => 1, 'orderBy' => 'position asc, id desc']);
         
         return $this->render('index', [
