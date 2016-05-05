@@ -21,13 +21,13 @@
     $num = count($data);
     ?>
     <button class="bt-prev" <?= $num < 2 ? 'style="display:none"' : '' ?>>
-        <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg fill="#666" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
             <path d="M0 0h24v24H0z" fill="none"/>
         </svg>
     </button>
     <button class="bt-next" <?= $num < 2 ? 'style="display:none"' : '' ?>>
-        <svg fill="#fff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <svg fill="#666" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
             <path d="M0 0h24v24H0z" fill="none"/>
         </svg>
@@ -36,13 +36,14 @@
 
 <style>
 #slideshow-container {
-    position: relative;
     width: 100%;
+    position: relative;
     white-space: nowrap;
+    overflow: hidden;
 }
 #slideshow-images {
-    width: 100%;
-    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
 }
 #slideshow-images figure {
     position: relative;
@@ -80,7 +81,7 @@
     bottom: 0;
     height: 100%;
     width: 12%;
-    min-width: 1.5em;
+    min-width: 3em;
     background: transparent;
     border: none;
     outline: none;
@@ -89,7 +90,7 @@
 .bt-prev:hover,
 .bt-next:hover {
     opacity: 1;
-    background: rgba(120, 120, 120, 0.2);
+    background: rgba(250, 250, 250, 0.3);
 }
 .bt-prev {
     left: 0;
@@ -103,11 +104,14 @@
     height: 48px;
 }
 @media screen and (max-width: 640px) {
-.bt-prev > svg,
-.bt-next > svg {
-    width: 36px;
-    height: 36px;
-}
+    .bt-prev > svg,
+    .bt-next > svg {
+        width: 36px;
+        height: 36px;
+    }
+    #slideshow-images {
+        width: 100%;
+    }
 }
 .bt-prev > span {
     background-position: 0 0;
@@ -128,7 +132,7 @@ var a = document.getElementById("slideshow-images");
 var c = a.children[0];
 var bt_prev = g.getElementsByClassName("bt-prev")[0];
 var bt_next = g.getElementsByClassName("bt-next")[0];
-var w, x; // w = width of figure; x = key of current figure element of c
+var w, u, df, x; // w = width of #slideshow-images; u = width of #slideshow-container; x = key of current figure element of c
 // RUN
 run();
 window.addEventListener("resize", function(){
@@ -137,12 +141,15 @@ window.addEventListener("resize", function(){
 
 // FUNCTION
 function setParams() {
+    u = window.getComputedStyle(g, null).getPropertyValue("width");
     w = window.getComputedStyle(a, null).getPropertyValue("width");
+    df = (parseInt(u) - parseInt(w)) / parseInt(w);
     x = 0;
     c.style.transition = "margin " + String(0.001 * parseInt(opts.time_slide)) + "s ease";
 }
 function run() {
     setParams();
+    setMargin(df);
     bt_next.addEventListener("click", function() {
         next();
     });
@@ -169,7 +176,14 @@ function next() {
     } else {
         x = 0;
     }
-    setMargin(x);
+    
+    if (x === 0) {
+        setMargin(x + df);
+    } else if (x === c.children.length - 1) {
+        setMargin(x - df);
+    } else {
+        setMargin(x);
+    }
 };
 function prev() {
     if (x > 0) {
@@ -177,7 +191,14 @@ function prev() {
     } else {
         x = c.children.length - 1;
     }
-    setMargin(x);
+    
+    if (x === 0) {
+        setMargin(x + df);
+    } else if (x === c.children.length - 1) {
+        setMargin(x - df);
+    } else {
+        setMargin(x);
+    }
 };
 function setMargin(x) {
     c.style.marginLeft = "-" + String(x * parseInt(w)) + "px";
