@@ -20,6 +20,28 @@
                 ?>
                 <p class="price"><?= $item->currency('price') ?></p>
             </div>
+            <?php
+            if ($item->original_price > $item->price || $item->is_hot == 1) {
+            ?>
+            <div class="tip">
+            <?php
+            if ($item->original_price > $item->price) {
+            ?>
+                <img src="<?= Yii::$app->params['images_url'] ?>/khuyenmai1.gif">
+            <?php
+            }
+            ?>
+            <?php
+            if ($item->is_hot == 1) {
+            ?>
+                <img src="<?= Yii::$app->params['images_url'] ?>/hot2.gif">
+            <?php
+            }
+            ?>
+            </div>
+            <?php
+            }
+            ?>
             <div class="clr"></div>
         </a>
         <?php

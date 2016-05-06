@@ -11,8 +11,8 @@
 ]) ?>
 </div>
 <div class="col-5 paragraph">
-    <h2><?= $product->name ?></h2>
-    <p><?= $product->description ?></p>
+    <h2 class="title-1"><?= $product->name ?></h2>
+    <?= $product->description ?>
     <?php
     if ($product->original_price > $product->price) {
     ?>
@@ -23,10 +23,10 @@
     <p>Giá bán: <span class="price"><?= $product->currency('price') ?></span></p>
 </div>
 <div class="col-12 paragraph">
-    <h3>Giới thiệu</h3>
+    <h3 class="sub-title-1">Giới thiệu</h3>
     <?= $product->long_description ?>
 </div>
 <div class="col-12 paragraph">
-    <h3>Thông số kỹ thuật</h3>
+    <h3 class="sub-title-1">Thông số kỹ thuật</h3>
     <?= $product->details ?>
 </div>

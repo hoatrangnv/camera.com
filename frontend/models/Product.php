@@ -193,12 +193,23 @@ class Product extends \common\models\Product
     
     public static function getProducts($params = [])
     {
-        $query = Product::find()->where(['is_active' => 1])->andWhere(['<=', 'published_at', strtotime('now')]);
+        $query = static::find()->where(['is_active' => 1])->andWhere(['<=', 'published_at', strtotime('now')]);
         if (isset($params['id_in']) && is_array($params['id_in'])) {
             $query->andWhere(['in', 'id', $params['id_in']]);
         }
+        if (isset($params['id_not_in']) && is_array($params['id_not_in'])) {
+            $query->andWhere(['not in', 'id', $params['id_not_in']]);
+        }
+        if (!empty($params['id_not_equal'])) {
+            $query->andWhere(['!=', 'id', $params['id_not_equal']]);
+        }
+        if (!empty($params['is_hot'])) {
+            $query->andWhere(['is_hot' => $params['is_hot']]);
+        }
         if (!empty($params['orderBy'])) {
             $query->orderBy($params['orderBy']);
+        } else {
+            $query->orderBy('created_at desc');
         }
         if (!empty($params['limit'])) {
             $query->limit($params['limit']);

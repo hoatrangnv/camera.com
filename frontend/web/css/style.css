@@ -20,12 +20,12 @@ html {
     font-size: inherit;
     line-height: 1.5em;
 }
-.paragraph h2 {
+.paragraph .title-1 {
     font-size: 1.6em;
     margin-bottom: 0.5em;
     color: #09b;
 }
-.paragraph h3 {
+.paragraph .sub-title-1 {
     color: #ec8000;
     font-size: 1.3em;
     margin: 0.5em 0;
@@ -200,14 +200,14 @@ body {
 }
 
 .content {
-    float:right;
+    float: right;
     width: calc(100% - 240px);
 }
 .price {
     color: #e00;
     font-weight: bold;
     margin-top: 0.5em;
-    font-size: 1.15em;
+    /*font-size: 1.15em;*/
 }
 .o-price {
     color: #aaa;
@@ -236,10 +236,18 @@ body {
     -moz-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
 }
+.list-view .thumb .desc > *:not(.name):not(.price):not(.o-price) {
+    font-size: 0.9em;
+    line-height: 1.5em;
+}
+.list-view .thumb .desc > *:not(.name):not(.price):not(.o-price) * {
+    font-size: inherit;
+}
 .list-view .thumb .name {
     margin-bottom: 0.5em;
 }
 .list-view .thumb {
+    text-align: left;
     padding: 1%;
     width: 32%;
     display: inline-block;
@@ -250,6 +258,7 @@ body {
     -webkit-transition: all 0.3s ease;
 }
 .list-view .detail {
+    text-align: left;
     width: 100%;
     float: left;
     border-top: 1px dotted #ccc;
@@ -282,7 +291,7 @@ body {
     -ms-box-shadow: 0 0 10px #ccc;
 }
 .list-view .thumb:hover .img-wrap {
-    opacity: 0.7;
+    /*opacity: 0.7;*/
     transform: scale(1.05, 1.05);
     -webkit-transform: scale(1.05, 1.05);
     -moz-transform: scale(1.05, 1.05);
@@ -294,11 +303,19 @@ body {
 .list-view .detail .name a:hover {
     text-decoration: underline;
 }
-.list-view .thumb img {
+.list-view .thumb .img-wrap img {
     width: 100%;
 }
-.list-view .detail img {
+.list-view .detail .img-wrap img {
     width: 100%;
+}
+.list-view .thumb .tip {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.list-view .thumb .tip img {
+    vertical-align: top;
 }
 .breadcrumbs {
     padding: 0.5em;
