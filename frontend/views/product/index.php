@@ -16,9 +16,9 @@
     <?php
     if ($product->original_price > $product->price) {
     ?>
-    <p>Giá niêm yết: <span class="o-price"><?= $product->currency('original_price') ?></span></p>
-    <p>Giá khuyến mãi: <span class="price"><?= $product->currency('price') ?></span></p>
-    <p style="color:#689f38;font-style:italic;font-weight:bold">
+    <p style="margin-top:0.5em">Giá niêm yết: <span class="o-price"><?= $product->currency('original_price') ?></span></p>
+    <p style="margin-top:0.5em">Giá khuyến mãi: <span class="price"><?= $product->currency('price') ?></span></p>
+    <p style="margin-top:0.5em;color:#689f38;font-style:italic;font-weight:bold">
         <svg style="display:inline;float:left" fill="#689f38" height="1.25em" viewBox="0 0 24 24" width="1.25em" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0h24v24H0z" fill="none"/>
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
@@ -27,7 +27,7 @@
     <?php
     } else {
     ?>
-    <p>Giá bán: <span class="price"><?= $product->currency('price') ?></span></p>
+    <p style="margin-top:0.5em">Giá bán: <span class="price"><?= $product->currency('price') ?></span></p>
     <?php
     }
     ?>
