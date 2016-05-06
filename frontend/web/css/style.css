@@ -315,7 +315,7 @@ body {
     left: 0;
 }
 .list-view .thumb .tip img {
-    vertical-align: top;
+    vertical-align: middle;
 }
 .breadcrumbs {
     padding: 0.5em;

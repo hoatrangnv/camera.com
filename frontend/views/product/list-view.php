@@ -27,14 +27,14 @@
             <?php
             if ($item->original_price > $item->price) {
             ?>
-                <img src="<?= Yii::$app->params['images_url'] ?>/khuyenmai1.gif">
+                <img src="<?= Yii::$app->params['images_url'] ?>/khuyenmai2.gif">
             <?php
             }
             ?>
             <?php
             if ($item->is_hot == 1) {
             ?>
-                <img src="<?= Yii::$app->params['images_url'] ?>/hot2.gif">
+                <img src="<?= Yii::$app->params['images_url'] ?>/hot1.gif">
             <?php
             }
             ?>
