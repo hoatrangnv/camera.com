@@ -92,7 +92,7 @@ class SlideshowItem extends \yii\db\ActiveRecord
                     'imageName' => $model->image,
                     'fromFolder' => Yii::$app->params['uploads_folder'],
                     'toFolder' => $targetFolder,
-                    'resize' => [[120, 120], [200, 200]],
+                    'resize' => [[400, 400], [600, 600], [800, 800]],
                     'removeInputImage' => true,
                 ]);
                 if ($copyResult['success']) {
@@ -150,7 +150,7 @@ class SlideshowItem extends \yii\db\ActiveRecord
                     'imageName' => $this->image,
                     'fromFolder' => Yii::$app->params['uploads_folder'],
                     'toFolder' => $targetFolder,
-                    'resize' => [[120, 120], [200, 200]],
+                    'resize' => [[400, 400], [600, 600], [800, 800]],
                     'removeInputImage' => true,
                 ]);
                 if ($copyResult['success']) {
