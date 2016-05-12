@@ -8,7 +8,7 @@ use Yii;
 
 class ProductCategoryController extends BaseController
 {
-    const ITEMS_PER_PAGE = 10;
+    const ITEMS_PER_PAGE = 12;
 
     public function actionIndex()
     {

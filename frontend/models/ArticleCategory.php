@@ -219,6 +219,19 @@ class ArticleCategory extends \common\models\ArticleCategory
         return $this->_children;
     }
     
+    public $_all_children = 1;
+    public function getAllChildren()
+    {
+        if ($this->_all_children === 1) {
+            $result = $this->getChildren();
+            foreach ($result as $item) {
+                $result = array_merge($result, $item->getAllChildren());
+            }
+            $this->_all_children = $result;
+        }
+        return $this->_all_children;
+    }
+    
     public static function getArticleCategories($params = []) {
         $query = static::find()->where(['is_active' => 1]);
         if (isset($params['id_in']) && is_array($params['id_in'])) {
@@ -253,7 +266,7 @@ class ArticleCategory extends \common\models\ArticleCategory
     
     public function getArticles($params = [])
     {
-        $cate_ids = ArrayHelper::merge([$this->id], ArrayHelper::getColumn($this->getChildren(), 'id'));
+        $cate_ids = ArrayHelper::merge([$this->id], ArrayHelper::getColumn($this->getAllChildren(), 'id'));
         $id_in = ArrayHelper::getColumn(ArticleToArticleCategory::find()->where(['in', 'article_category_id', $cate_ids])->all(), 'article_id');
         $result = Article::getArticles([
             'id_in' => $id_in,

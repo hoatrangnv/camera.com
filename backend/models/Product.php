@@ -140,7 +140,7 @@ class Product extends \yii\db\ActiveRecord
                     'imageName' => $model->image,
                     'fromFolder' => Yii::$app->params['uploads_folder'],
                     'toFolder' => $targetFolder,
-                    'resize' => [[120, 120], [200, 200]],
+                    'resize' => [[120, 120], [200, 200], [250, 250]],
                     'removeInputImage' => true,
                 ]);
                 if ($copyResult['success']) {
@@ -152,7 +152,6 @@ class Product extends \yii\db\ActiveRecord
                     'imageName' => $model->banner,
                     'fromFolder' => Yii::$app->params['uploads_folder'],
                     'toFolder' => $targetFolder,
-                    'resize' => [[120, 120], [200, 200]],
                     'removeInputImage' => true,
                 ]);
                 if ($copyResult['success']) {
@@ -233,7 +232,7 @@ class Product extends \yii\db\ActiveRecord
                     'imageName' => $this->image,
                     'fromFolder' => Yii::$app->params['uploads_folder'],
                     'toFolder' => $targetFolder,
-                    'resize' => [[120, 120], [200, 200]],
+                    'resize' => [[120, 120], [200, 200], [250, 250]],
                     'removeInputImage' => true,
                 ]);
                 if ($copyResult['success']) {
@@ -245,7 +244,6 @@ class Product extends \yii\db\ActiveRecord
                     'imageName' => $this->banner,
                     'fromFolder' => Yii::$app->params['uploads_folder'],
                     'toFolder' => $targetFolder,
-                    'resize' => [[120, 120], [200, 200]],
                     'removeInputImage' => true,
                 ]);
                 if ($copyResult['success']) {

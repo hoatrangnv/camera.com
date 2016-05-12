@@ -129,7 +129,7 @@ class Article extends \yii\db\ActiveRecord
                     'imageName' => $model->image,
                     'fromFolder' => Yii::$app->params['uploads_folder'],
                     'toFolder' => $targetFolder,
-                    'resize' => [[120, 120], [220, 220], [340, 340]],
+                    'resize' => [[120, 120], [200, 200], [250, 250]],
                     'removeInputImage' => true,
                 ]);
                 if ($copyResult['success']) {
@@ -209,7 +209,7 @@ class Article extends \yii\db\ActiveRecord
                     'imageName' => $this->image,
                     'fromFolder' => Yii::$app->params['uploads_folder'],
                     'toFolder' => $targetFolder,
-                    'resize' => [[120, 120], [220, 220], [340, 340]],
+                    'resize' => [[120, 120], [200, 200], [250, 250]],
                     'removeInputImage' => true,
                 ]);
                 if ($copyResult['success']) {
