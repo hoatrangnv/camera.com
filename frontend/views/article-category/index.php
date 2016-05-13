@@ -4,3 +4,6 @@
     'articles' => $articles
 ]) ?>
 <?= $this->render('//modules/pagination', ['pagination' => $pagination]) ?>
+<div class="col-12 paragraph">
+    <?= $cate->long_description ?>
+</div>
