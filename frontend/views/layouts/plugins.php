@@ -1,8 +1,5 @@
-<!-- jQuery -->
-<!--<script src="<?= Yii::$app->params['frontend_url'] ?>/js/jquery-2.1.3.min.js"></script>-->
-
 <!-- Google -->
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+<!--<script src="https://apis.google.com/js/platform.js" async defer></script>-->
 
 <!-- Google analytics -->
 <script>
@@ -31,7 +28,7 @@
 </script>
 
 <!-- Facebook -->
-<div id="fb-root"></div>
+<!--<div id="fb-root"></div>
 <script>
 (function(d, s, id){
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -41,4 +38,4 @@
     js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=<?= Yii::$app->params['fb_app_id'] ?>";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
-</script>
+</script>-->

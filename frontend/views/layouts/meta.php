@@ -20,11 +20,10 @@
 <meta property="og:url" content="<?= $this->context->link_canonical ?>">
 <meta property="og:image" content="<?= $this->context->meta_image ?>">
 <meta property="og:site_name" content="<?= Yii::$app->name ?>">
-<meta property="article:publisher" content="">
 <link rel="canonical" href="<?= $this->context->link_canonical ?>">
 <link rel="image_src" type="image/jpeg" href="<?= $this->context->meta_image ?>">
 <link rel="alternate" media="handheld" href="<?= $this->context->link_canonical ?>">
 <link rel="shortcut icon" href="<?= Yii::$app->params['frontend_url'] ?>/favicon.ico">
 <!-- Chrome for Android theme color -->
-<meta name="theme-color" content="#303F9F">
+<meta name="theme-color" content="#229bc9">
 <meta name="REVISIT-AFTER" content="1 DAYS">

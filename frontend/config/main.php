@@ -44,7 +44,8 @@ return [
             'rules' => [
                 // Sitemap
                 ['pattern' => 'sitemap.xml', 'route' => 'sitemap/index'],
-                ['pattern' => 'sitemap_<slug>.xml', 'route' => 'sitemap/article-category'],
+                ['pattern' => 'sitemap-tin-tuc-<slug>.xml', 'route' => 'sitemap/article'],
+                ['pattern' => 'sitemap-san-pham-<slug>.xml', 'route' => 'sitemap/product'],
                 // Thông tin
                 ['pattern' => 'thong-tin/<slug>.html', 'route' => 'info/index'],
                 // Tin tức

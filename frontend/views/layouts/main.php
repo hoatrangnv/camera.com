@@ -46,32 +46,35 @@ AppAsset::register($this);
     </footer>
     </div>
     <script>
-    <?php $this->beginBlock('JS_END') ?>
-    var g;
     var gs = document.getElementsByClassName("paragraph");
-    for (var k = 0; k < gs.length; k++) {
-        g = gs[k];
+    for (var i = 0; i < gs.length; i++) {
+        var g = gs[i];
         if (typeof(g) !== "undefined" && g !== null) {
-            var g_w = parseInt(window.getComputedStyle(g, null).getPropertyValue("width"));
-            var els = g.querySelectorAll("table, img, iframe");
-            for (var i = 0; i < els.length; i++) {
-                setStyle(els[i]);
+            var es = g.querySelectorAll("*");
+            for (var j = 0; j < es.length; j++) {
+                setStyle(es[j]);
             }
-            function setStyle(el) {
-                el_w = parseInt(window.getComputedStyle(el, null).getPropertyValue("width"));
-                if (el_w > g_w) {
-                    el.style.paddingRight = "0px";
-                    el.style.paddingLeft = "0px";
-                    el.style.boxSizing = "border-box";
-                    el.style.height = "auto";
-                    el.style.width = g_w + "px";
+            function setStyle(e) {
+                var e_w, p, p_w;
+                p = e.parentElement;
+                p_w = parseInt(window.getComputedStyle(p, null).getPropertyValue("width"));
+                e_w = parseInt(window.getComputedStyle(e, null).getPropertyValue("width"));
+                e.style.maxWidth = "initial";
+                e.style.maxHeight = "initial";
+                e.style.minWidth = "initial";
+                e.style.minHeight = "initial";
+                if (e_w > p_w) {
+                    e.style.paddingRight = "0px";
+                    e.style.paddingLeft = "0px";
+                    e.style.boxSizing = "border-box";
+                    e.style.height = "auto";
+                    e.style.width = p_w + "px";
                 }
             }
         }
     }
-    <?php $this->endBlock(); ?>
     </script>
-    <?php $this->registerJs($this->blocks['JS_END'], $this::POS_END, 'JS_END'); ?>
+    <?php require_once 'plugins.php'; ?>
     <?php $this->endBody() ?>
 </body>
 </html>
